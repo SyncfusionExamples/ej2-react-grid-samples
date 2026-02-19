@@ -1,0 +1,6 @@
+@UrlAdaptorDemo.Server_HostAddress = http://localhost:5123
+
+GET {{UrlAdaptorDemo.Server_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

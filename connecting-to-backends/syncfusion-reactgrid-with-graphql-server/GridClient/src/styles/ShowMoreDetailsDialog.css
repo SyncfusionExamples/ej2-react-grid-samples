@@ -1,0 +1,244 @@
+
+
+/* Dialog custom styles */
+.e-dialog .e-dlg-header-content {
+    border-bottom: 0;
+    padding: 10px 18px;
+}
+
+.modern-dialog {
+  padding: 0;
+  max-width: 820px;
+  border-radius: 16px;
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.22);
+}
+
+.dialog-header {
+  background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+  color: white;
+  padding: 5px;
+  text-align: center;
+
+  h3 {
+    margin: 0;
+    font-weight: 600;
+    
+  }
+
+  .product-title-highlight {
+    margin-top: 0.2rem;
+    opacity: 0.9;
+    font-size: 0.7rem;
+  }
+}
+
+.main-content-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.35fr;
+  gap: 2.5rem;
+  padding: 1rem;
+}
+
+.product-visual {
+  position: relative;
+}
+
+.cell-product {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.thumb {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  object-fit: cover;
+  box-shadow: 0 0 0 3px #f2f4f7;
+}
+.title { font-weight: 500; color: #1f2937; }
+
+.main-product-img {
+  width: 100%;
+  height: auto;
+  max-height: 380px;             /* prevent it from becoming gigantic */
+  object-fit: contain;
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-drag: none;
+  cursor: default;
+}
+
+.image-container {
+  background: #f9fafb;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 16px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+}
+
+/* Optional: make it feel more like a static product photo */
+.product-visual {
+  cursor: default;
+}
+
+/* If you ever want to allow zoom later, you can override with a button */
+.zoomable .main-product-img {
+  pointer-events: auto;
+  cursor: zoom-in;
+}
+
+/* Badges now in normal flow - centered or left-aligned as you prefer */
+.image-badges.below-image {
+  position: static;             /* ← most important: remove absolute/floating */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;                     /* space between badges */
+  justify-content: center;      /* or flex-start / space-between */
+  margin: 8px 0 12px 0;         /* vertical spacing */
+  padding: 0 8px;
+}
+
+/* Optional: make badges look nicer when not floating */
+.badge {
+  padding: 4px 10px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  border-radius: 12px;
+  white-space: nowrap;
+}
+
+.badge.stock {
+  background-color: #38a169;
+  color: white;
+}
+
+.badge.stock.low {
+  background-color: #dd6b20;
+}
+
+/* If you want them more compact */
+.image-badges.below-image .badge {
+  padding: 3px 9px;
+  font-size: 0.75rem;
+}
+.discount { background: #2dd383; }
+.featured { background: #8b5cf6; }
+.stock   { background: #10b981; }
+.stock.low { background: #f59e0b; }
+
+.rating-container {
+  margin-top: 1.2rem;
+  text-align: center;
+  font-size: 1.4rem;
+
+  .stars {
+    color: #e5e7eb;
+    margin-bottom: 0.3rem;
+
+    .active { color: #fbbf24; }
+    .half   { color: #fbbf24; opacity: 0.6; }
+  }
+
+  .rating-text {
+    font-size: 0.95rem;
+    color: #64748b;
+  }
+}
+
+.price-block {
+  margin-bottom: 1.8rem;
+
+  .current-price {
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: #1e40af;
+    line-height: 1;
+  }
+
+  .mrp-strike {
+    color: #64748b;
+    font-size: 1.1rem;
+    margin-top: 0.3rem;
+  }
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.2rem 2rem;
+  margin-bottom: 1.8rem;
+}
+
+.info-item {
+  .label {
+    display: block;
+    color: #64748b;
+    font-size: 0.82rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .value {
+    font-weight: 600;
+    color: #1e293b;
+  }
+}
+
+.tags-container {
+  margin: 1.5rem 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.tag {
+  background: #e0f2fe;
+  color: #0369a1;
+  padding: 5px 14px;
+  border-radius: 30px;
+  font-size: 0.82rem;
+  font-weight: 500;
+}
+
+.description {
+  h4 {
+    margin: 0 0 0.8rem;
+    color: #1e293b;
+    font-size: 1.15rem;
+  }
+
+  p {
+    color: #475569;
+    line-height: 1.6;
+    margin: 0;
+  }
+}
+
+.footer-info {
+  margin-top: 2rem;
+  padding-top: 1.4rem;
+  border-top: 1px solid #e2e8f0;
+  display: flex;
+  justify-content: space-between;
+  color: #475569;
+  font-size: 0.95rem;
+
+  strong {
+    color: #1e293b;
+  }
+}
+
+
+.form-field.image-upload-field {
+  .image-field {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 8px;
+
+    .preview {
+      width: 100px;
+      height: 100px;
+    }
+  }
+}
