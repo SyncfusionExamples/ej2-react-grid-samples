@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36212.18 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "webapiadaptor.client", "webapiadaptor.client\webapiadaptor.client.esproj", "{0DB78BA8-320A-3226-19B4-8F22E876AD9A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApiAdaptor.Server", "WebApiAdaptor.Server\WebApiAdaptor.Server.csproj", "{CC5D7126-38B1-4887-B203-D5F9FA67A2BC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0DB78BA8-320A-3226-19B4-8F22E876AD9A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0DB78BA8-320A-3226-19B4-8F22E876AD9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0DB78BA8-320A-3226-19B4-8F22E876AD9A}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{0DB78BA8-320A-3226-19B4-8F22E876AD9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0DB78BA8-320A-3226-19B4-8F22E876AD9A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0DB78BA8-320A-3226-19B4-8F22E876AD9A}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{CC5D7126-38B1-4887-B203-D5F9FA67A2BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC5D7126-38B1-4887-B203-D5F9FA67A2BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC5D7126-38B1-4887-B203-D5F9FA67A2BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC5D7126-38B1-4887-B203-D5F9FA67A2BC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C0997EDF-E33A-4E87-9BE8-472FDB9E097B}
+	EndGlobalSection
+EndGlobal
