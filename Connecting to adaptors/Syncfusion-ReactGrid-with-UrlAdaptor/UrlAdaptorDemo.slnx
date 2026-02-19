@@ -1,0 +1,7 @@
+<Solution>
+  <Project Path="urladaptordemo.client/urladaptordemo.client.esproj">
+    <Build />
+    <Deploy />
+  </Project>
+  <Project Path="UrlAdaptorDemo.Server/UrlAdaptorDemo.Server.csproj" />
+</Solution>
