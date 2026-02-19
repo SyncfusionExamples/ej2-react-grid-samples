@@ -17,10 +17,10 @@ function App() {
   const data = new DataManager({
     url: "http://localhost:5095/api/grid", // Replace with your backend port
     adaptor: new WebMethodAdaptor(), // Use WebMethodAdaptor for value object pattern
-    // insertUrl: "http://localhost:5095/api/grid/Insert",
-    // updateUrl: "http://localhost:5095/api/grid/Update",
-    // removeUrl: "http://localhost:5095/api/grid/Remove",
-    // crudUrl: "http://localhost:5095/api/grid/CrudUpdate",
+    insertUrl: "http://localhost:5095/api/grid/Insert",
+    updateUrl: "http://localhost:5095/api/grid/Update",
+    removeUrl: "http://localhost:5095/api/grid/Remove",
+    crudUrl: "http://localhost:5095/api/grid/CrudUpdate",
     batchUrl: "http://localhost:5095/api/grid/BatchUpdate",
   });
 
