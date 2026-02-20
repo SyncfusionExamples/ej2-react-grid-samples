@@ -1,0 +1,6 @@
+@Grid_MySQL.Server_HostAddress = http://localhost:5283
+
+GET {{Grid_MySQL.Server_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
