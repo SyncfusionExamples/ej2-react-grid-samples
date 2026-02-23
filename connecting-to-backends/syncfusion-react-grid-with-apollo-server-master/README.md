@@ -1,6 +1,10 @@
-# Connecting the Syncfusion React Grid with GraphQL backend in Node.js
+# Connecting the Syncfusion React Grid with Apollo GraphQL Backend
 
 GraphQL is a query language that allows applications to request exactly the data needed, nothing more and nothing less. Unlike traditional REST APIs that return fixed data structures, GraphQL enables the client to specify the shape and content of the response.
+
+**What is Apollo?**
+
+Apollo Server is a widely used GraphQL server that simplifies creating efficient and scalable APIs. It offers a clear structure for defining schemas, handling queries, and connecting data sources, making it a strong choice for building modern GraphQL backends.
 
 **Key GraphQL concepts:**
 
@@ -31,20 +35,22 @@ GraphQL is a query language that allows applications to request exactly the data
 - Run the below commands to run the server.
   ```bash
     cd GraphQLServer
+    npm install
     npm start
   ```
-  The server is now running at http://localhost:4205/.
+  The server is now running at http://localhost:4000/.
 
 **Run the client**
  - Execute the below commands to run the client application.
   ```bash
   cd GridClient
-  npm start
+  npm install
+  npm run dev
   ```
-- Open http://localhost:4200/ in the browser.
+- Open http://localhost:5173/ in the browser.
 
 
-## Configuration
+## Backend Configuration (Apollo + DataManagerInput)
 
 The Syncfusion `GraphQLAdaptor` converts grid actions → GraphQL queries/mutations automatically and expects the backend to follow a specific structure.
 
@@ -74,25 +80,30 @@ The Syncfusion DataManager sends a single JSON payload containing all operation 
 | `GraphQLServer/src/schema.graphql` | GraphQL schema definition |
 | `GraphQLServer/src/types.ts` | TypeScript type definitions for GraphQL schema |
 | `GraphQLServer/src/resolvers.ts` | GraphQL resolvers implementation |
+| `GridServer/src/data.ts` | In‑memory expense dataset used by GraphQL server |
+| `GridServer/src/server.ts` | Apollo GraphQL server setup and executable schema |
+| `GridServer/src/avatars_base64.json` | Avatar image assets used in sample expense data |
 | `GridClient/src/index.css` | Global CSS styles |
-| `GridClient/src/components/ProductGrid.tsx` | React component for displaying the product grid |
-| `GridClient/src/components/EditDialogTemplate.tsx` | React component template for edit dialogs |
-| `GridClient/src/components/ShowMoreDetailsDialog.tsx` | React component for showing detailed product information |
-| `GridClient/src/data/data.ts` | Client-side data handling utilities |
-| `GridClient/src/models/product-details.ts` | TypeScript model for product details |
+| `GridClient/src/components/ExpenseGrid.tsx` | React component for displaying the expense grid |
+| `GridClient/src/components/DialogTemplate.tsx` | Edit/Add dialog template used by the grid |
+| `GridClient/src/models/`| TypeScript models for Expense and related entities |
+| `GridClient/src/constants/`| Constant values shared across components |
+| `GridClient/src/styles/` | Component‑specific stylesheets |
+| `GridClient/src/src/assets/` | Static assets used in the React client |
 
 ---
 
-## Common Tasks
+## Common Operations in the Grid
 
 ### Add a Record
 1. Click **Add** in the grid toolbar
-2. Fill out fields (productName, productId, category, rating, etc.)
+2. Fill out the dialog (expenseId, department, category, amount, etc.)
 3. Click **Save** to create the record
 
 ### Edit a Record
 1. Select a row → **Edit**
 2. Modify fields → **Update**
+3. Click Update
 
 ### Delete a Record
 1. Select a row → **Delete**
@@ -100,11 +111,11 @@ The Syncfusion DataManager sends a single JSON payload containing all operation 
 
 ### Search / Filter / Sort
 - Use the **Search** box (toolbar) to match across configured columns
-- Use column filter icons for equals/contains/date filters
-- Click column headers to sort ascending/descending
+- Use **column filter icons** for equals/contains/date filters
+- Click **column headers** to sort ascending/descending
 
 ## Reference
-The [user guide](https://ej2.syncfusion.com/react/documentation/grid/connecting-to-backends/graphql-nodejs-server) provides detailed directions in a clear, step-by-step format.
+The [user guide](https://ej2.syncfusion.com/react/documentation/grid/connecting-to-backends/graphql-apollo-server) provides detailed directions in a clear, step-by-step format.
 
 
 # Steps to download GitHub samples using DownGit
@@ -116,7 +127,7 @@ The [user guide](https://ej2.syncfusion.com/react/documentation/grid/connecting-
 2. **Copy the GitHub URL**
 
     - Navigate to the sample folder you want to download and copy its URL.
-    - Example : https://github.com/SyncfusionExamples/ej2-react-grid-samples/tree/Ej2-EditReadmeFiles/connecting-to-backends/syncfusion-reactgrid-with-graphql-server
+    - Example :https://github.com/SyncfusionExamples/ej2-react-grid-samples/tree/master/connecting-to-adaptors/WebApiAdaptor
 
 3. **Paste the URL into DownGit**  
 
@@ -129,5 +140,3 @@ The [user guide](https://ej2.syncfusion.com/react/documentation/grid/connecting-
 5. **Reference** 
     
     For more details or to explore the project, visit the official [DownGit GitHub repository](https://github.com/MinhasKamal/DownGit).
-
-
