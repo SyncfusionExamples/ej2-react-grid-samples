@@ -1,0 +1,6 @@
+@Grid_EntityFramework.Server_HostAddress = http://localhost:5018
+
+GET {{Grid_EntityFramework.Server_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

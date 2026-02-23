@@ -1,0 +1,6 @@
+@Grid_MSSQL.Server_HostAddress = http://localhost:5239
+
+GET {{Grid_MSSQL.Server_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
