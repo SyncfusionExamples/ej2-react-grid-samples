@@ -1,0 +1,7 @@
+<Solution>
+  <Project Path="grid_dapper.client/grid_dapper.client.esproj">
+    <Build />
+    <Deploy />
+  </Project>
+  <Project Path="Grid_Dapper.Server/Grid_Dapper.Server.csproj" />
+</Solution>
