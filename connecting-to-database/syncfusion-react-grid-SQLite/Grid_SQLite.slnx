@@ -1,0 +1,7 @@
+<Solution>
+  <Project Path="grid_sqlite.client/grid_sqlite.client.esproj">
+    <Build />
+    <Deploy />
+  </Project>
+  <Project Path="Grid_SQLite.Server/Grid_SQLite.Server.csproj" />
+</Solution>

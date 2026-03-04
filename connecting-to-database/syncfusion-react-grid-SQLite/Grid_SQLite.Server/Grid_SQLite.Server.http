@@ -1,0 +1,6 @@
+@Grid_SQLite.Server_HostAddress = http://localhost:5178
+
+GET {{Grid_SQLite.Server_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
