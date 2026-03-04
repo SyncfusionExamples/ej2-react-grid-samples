@@ -39,9 +39,6 @@ builder.Services.AddDbContext<AssetDbContext>(options =>
     }
 });
 
-// Register Repository for dependency injection
-builder.Services.AddScoped<AssetRepository>();
-
 var app = builder.Build();
 app.UseCors("cors");
 app.UseDefaultFiles();
