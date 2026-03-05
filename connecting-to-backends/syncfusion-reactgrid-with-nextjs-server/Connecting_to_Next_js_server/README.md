@@ -86,3 +86,29 @@ A lightweight, production-ready pattern for binding **Next.js** server data to a
 ## Reference
 The [user guide](https://ej2.syncfusion.com/react/documentation/grid/data-binding/next-js-server) provides detailed directions in a clear, step-by-step format.
 
+
+## Steps to download GitHub samples using DownGit
+
+1. **Open the DownGit Website**
+
+    Go to the official DownGit tool: https://minhaskamal.github.io/DownGit
+
+2. **Copy the GitHub URL**
+
+    - Navigate to the sample folder you want to download and copy its URL.
+    - Example : https://github.com/SyncfusionExamples/ej2-react-grid-samples/tree/Ej2-EditReadmeFiles/connecting-to-backends/syncfusion-reactgrid-with-nextjs-server/Connecting_to_Next_js_server
+
+3. **Paste the URL into DownGit**  
+
+    In the DownGit input box, paste the copied GitHub URL.
+
+4. **Download the ZIP**
+
+    - Click **Download**.
+    - DownGit will generate a ZIP file of the selected folder, which you can save and extract locally.
+5. **Reference** 
+    
+    For more details or to explore the project, visit the official [DownGit GitHub repository](https://github.com/MinhasKamal/DownGit).
+
+
+

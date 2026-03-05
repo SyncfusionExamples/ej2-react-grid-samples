@@ -1,0 +1,88 @@
+scalar JSON
+
+# Represents a single expense record in the system.
+type Expense {
+  expenseId: ID!
+  employeeName: String
+  employeeEmail: String
+  employeeAvatarUrl: String
+  department: String
+  category: String
+  description: String
+  receiptUrl: String
+  amount: Float
+  taxPct: Float
+  totalAmount: Float
+  expenseDate: String
+  paymentMethod: String
+  currency: String!
+  reimbursementStatus: String
+  isPolicyCompliant: Boolean
+  tags: [String!]
+}
+
+# Wrapper for paginated expense results.
+type ReturnType {
+  result: [Expense!]!
+  count: Int!
+}
+
+# Input payload for creating or partially updating an expense
+input ExpenseInput {
+  expenseId: ID
+  employeeName: String
+  employeeEmail: String
+  employeeAvatarUrl: String
+  department: String
+  category: String
+  description: String
+  receiptUrl: String
+  amount: Float
+  taxPct: Float
+  totalAmount: Float
+  expenseDate: String
+  paymentMethod: String
+  currency: String
+  reimbursementStatus: String
+  isPolicyCompliant: Boolean
+  tags: [String!]
+}
+
+# Syncfusion DataManager-compatible state for server-side processing
+input DataManagerInput {
+  skip: Int
+  take: Int
+  requiresCounts: Boolean
+  sorted: [SortInput!]
+  filtered: [FilterInput!]
+  where: JSON
+  search: String
+  params: JSON
+}
+
+# Sort descriptor used by DataManager requests.
+input SortInput {
+  name: String!
+  direction: String!
+}
+
+# Filter descriptor used by DataManager requests.
+input FilterInput {
+  field: String!
+  operator: String!
+  value: String
+  predicate: String
+  matchCase: Boolean
+}
+
+# Read operations for expenses.
+type Query {
+  getExpenses(datamanager: DataManagerInput): ReturnType!
+}
+
+# Write operations for expenses.
+type Mutation {
+  addExpense(value: ExpenseInput!): Expense!
+  updateExpense(key: ID!, keyColumn: String, value: ExpenseInput!): Expense!
+  deleteExpense(key: String!, keyColumn: String): Expense!
+}
