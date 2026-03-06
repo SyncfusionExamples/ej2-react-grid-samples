@@ -32,7 +32,6 @@ body {
   display: flex;
   flex-direction: column;
   height: 100vh;
-  overflow: hidden;
 }
 
 /* ── Header ───────────────────────────────────────────────────────────────── */
@@ -140,20 +139,6 @@ body {
 /* ── Grid wrapper ─────────────────────────────────────────────────────────── */
 .grid-wrapper {
   flex: 1;
-  overflow: hidden;
   padding: 16px 20px 20px;
   transition: outline 0.3s ease;
-}
-
-.grid-wrapper .e-grid {
-  height: 100%;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 2px 8px rgba(103, 80, 164, .12);
-}
-
-/* ── Real-time sync highlight ─────────────────────────────────────────────── */
-.sync-highlight .e-grid {
-  outline: 2px solid #6750a4;
-  box-shadow: 0 0 0 4px rgba(103,80,164,.18);
 }
