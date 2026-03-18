@@ -6,7 +6,7 @@ import type { Employee, WhereDescriptor, SearchDescriptor, SortDescriptor, ReadP
 
 // ─── In-memory data store ─────────────────────────────────────────────────────
 let employees: Employee[] = [...(rawData as Employee[])];
-let nextId: number = employees.reduce((max, e) => Math.max(max, e.EmployeeID), 0) + 1;
+let nextEmployeeID = Math.max(...employees.map(e => +e.EmployeeID.split('-')[1]), 1000) + 1;
 
 // ─── Standalone HTTP server (no Express) + Socket.IO ─────────────────────────
 const server = http.createServer();
@@ -99,28 +99,42 @@ io.on('connection', (socket: Socket) => {
 
   // ── CRUD ────────────────────────────────────────────────────────────────────
   // Client emits 'crudAction' with action + payload; server mutates store and
-  // broadcasts 'dataChanged' to every connected client, then acks the caller
-  socket.on('crudAction', (body: CrudBody, ack: (data: unknown) => void) => {
-    const { action, value, key, added, changed, deleted } = body;
+  // broadcasts specific changes to OTHER connected clients (not the sender)
+  socket.on('crudAction', (body: CrudBody & { currentPage: number }, ack: (data: unknown) => void) => {
+    const { action, value, key, added, changed, deleted, currentPage } = body;
 
     // INSERT
     if (action === 'insert' && value) {
-      employees.push({ ...value, EmployeeID: nextId++ });
+      const newRecord = { ...value, EmployeeID: `EMP-${nextEmployeeID++}` };
+      employees.push(newRecord);
+      // Broadcast only the added record to other clients
+      socket.broadcast.emit('dataChanged', { added: newRecord, count: employees.length });
+      ack({ result: newRecord, added, changed, deleted, count: employees.length });
+      return;
     }
 
     // UPDATE
     if (action === 'update' && value) {
       const idx = employees.findIndex(e => e.EmployeeID === value.EmployeeID);
-      if (idx !== -1) employees[idx] = { ...employees[idx], ...value };
+      if (idx !== -1) {
+        employees[idx] = { ...employees[idx], ...value };
+        // Broadcast only the edited record to other clients
+        socket.broadcast.emit('dataChanged', { edited: employees[idx], count: employees.length });
+      }
+      ack({ result: value, added, changed, deleted, count: employees.length });
+      return;
     }
 
     // DELETE
     if (action === 'remove') {
       const removeId = key !== undefined ? key : value?.EmployeeID;
       employees = employees.filter(e => e.EmployeeID !== removeId);
+      // Broadcast only the deleted ID to other clients
+      socket.broadcast.emit('dataChanged', { deleted: { deletedRecordsPage: currentPage }, count: employees.length });
+      ack({ result: value, added, changed, deleted, count: employees.length });
+      return;
     }
 
-    io.emit('dataChanged', { message: 'Data updated — please refresh.' });
     ack({ result: value, added, changed, deleted, count: employees.length });
   });
 

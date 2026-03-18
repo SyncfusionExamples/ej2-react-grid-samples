@@ -14,8 +14,9 @@ import {
   type DataStateChangeEventArgs,
   type DataSourceChangedEventArgs,
 } from '@syncfusion/ej2-react-grids';
-import { Query } from '@syncfusion/ej2-data';
+import { DataUtil, Query } from '@syncfusion/ej2-data';
 import { io, Socket } from 'socket.io-client';
+import { DEPARTMENTS, LOCATIONS } from './constants';
 
 // ─── Grid settings ───────────────────────────────────────────────────────────
 const editSettings = {
@@ -30,10 +31,16 @@ const pageSettings = { pageSize: 10, pageSizes: true };
 
 const departmentParams = {
   params: {
-    dataSource: ['Admin', 'HR', 'Finance', 'IT', 'Operations', 'Support', 'Sales', 'Engineering', 'Marketing'],
+    dataSource: DEPARTMENTS,
     query: new Query(),
   },
 };
+const locationParams = {
+  params: {
+    dataSource: LOCATIONS,
+    query: new Query()
+  }
+}
 
 // ─── Helper: wrap socket.emit as an awaitable Promise via ack callback ────────
 function socketEmit<T>(socket: Socket, event: string, data: unknown): Promise<T> {
@@ -50,6 +57,8 @@ function socketEmit<T>(socket: Socket, event: string, data: unknown): Promise<T>
 export default function App() {
   const gridRef = useRef<GridComponent>(null);
   const socketRef = useRef<Socket | null>(null);
+  // Flag: prevents recursive socket calls when applying remote updates
+  const isApplyingRemoteUpdate = useRef(false);
 
   const [connected, setConnected] = useState(false);
   const [clientCount, setClientCount] = useState(0);
@@ -70,6 +79,9 @@ export default function App() {
 
     const res = await socketEmit<{ result: object[]; count: number }>(socket, 'readData', params);
 
+    if (DataUtil && DataUtil.parse && DataUtil.parse.parseJson)
+    res.result = DataUtil.parse.parseJson(res.result);
+
     // Excel-filter popup requests its own distinct data source via a callback
     const action = (args as any).action;
     if (
@@ -89,6 +101,11 @@ export default function App() {
 
   // ── CRUD — triggered after the user confirms add / edit / delete ──────────
   const dataSourceChanged = useCallback(async (args: DataSourceChangedEventArgs) => {
+    // Skip if this is a remote update (to prevent recursive socket calls)
+    if (isApplyingRemoteUpdate.current) {
+      return;
+    }
+    
     const socket = socketRef.current;
     if (!socket) return;
 
@@ -115,6 +132,7 @@ export default function App() {
         action: 'remove',
         key:    record?.EmployeeID,
         value:  record,
+        currentPage: gridRef.current?.pagerModule.pagerObj.currentPage,
       });
       (args as any).endEdit();
       return;
@@ -138,9 +156,65 @@ export default function App() {
     });
 
     // ★ Key Socket.IO use-case:
-    // listening on server side broadcast for changes
-    socket.on('dataChanged', () => {
-      gridRef.current?.refresh();
+    // listening on server side broadcast for specific changes (add/edit/delete)
+    // and applying them without interrupting current user operations
+    socket.on('dataChanged', (changes: { added?: any; edited?: any; deleted?: { deletedRecordsPage: number }, count: number }) => {
+      const grid = gridRef.current;
+      if (!grid?.dataSource) return;
+      
+      let dataSource = grid.dataSource as { result: any[]; count: number };
+      dataSource = { result: structuredClone(dataSource.result), count: dataSource.count };
+
+      if (!dataSource.result) return;
+      
+      // Set flag to prevent recursive socket calls
+      // isApplyingRemoteUpdate.current = true;
+
+      const pager = grid.pagerModule.pagerObj;
+      
+      try {
+        // Handle added record
+        if (changes.added) {
+          const isLastPage = pager.currentPage === pager.totalPages;
+          const canAppend = dataSource.result.length < (grid.pageSettings as any).pageSize;
+
+          if (isLastPage && canAppend) {
+            grid.isEdit && grid.closeEdit();
+            grid.refresh();
+          } else {
+            pager.totalRecordsCount = changes.count;
+          }
+        }
+        
+        // Handle edited record
+        if (changes.edited) {
+          if (grid.isEdit) {
+            const editedRowEle = grid.editModule.formObj.element.closest('tr') as HTMLTableRowElement;
+            const rowInfo = grid.getRowInfo(editedRowEle) as any;
+            const editedRowID = rowInfo.rowData.EmployeeID;
+
+            if (editedRowID === changes.edited.EmployeeID) {
+              grid.closeEdit();
+            } 
+
+            grid.setRowData(changes.edited.EmployeeID, changes.edited);
+          }
+        }
+        
+        // Handle deleted record
+        if (changes.deleted !== undefined) {
+          if (pager.currentPage >= changes.deleted.deletedRecordsPage) {
+            grid.isEdit && grid.closeEdit();
+            grid.refresh();
+          } else {
+            pager.totalRecordsCount = changes.count;
+          }
+        }
+      } catch (error) {
+        console.error(error);
+      }
+      
+      // Show sync flash indicator
       setSyncFlash(true);
       setTimeout(() => setSyncFlash(false), 1500);
     });
@@ -203,29 +277,35 @@ export default function App() {
           <ColumnsDirective>
             <ColumnDirective
               field="EmployeeID"
-              headerText="ID"
+              headerText="Employee ID"
               isPrimaryKey={true}
               isIdentity={true}
               textAlign="Right"
-              width="80"
+              width="120"
               allowEditing={false}
             />
             <ColumnDirective
-              field="FirstName"
-              headerText="First Name"
-              width="140"
+              field="EmployeeName"
+              headerText="Employee Name"
+              width="160"
               validationRules={{ required: true }}
             />
             <ColumnDirective
-              field="LastName"
-              headerText="Last Name"
+              field="Email"
+              headerText="Email"
+              width="200"
+              validationRules={{ required: true, email: true }}
+            />
+            <ColumnDirective
+              field="Contact"
+              headerText="Contact"
               width="140"
-              validationRules={{ required: true }}
+              textAlign="Right"
             />
             <ColumnDirective
               field="Department"
               headerText="Department"
-              width="160"
+              width="140"
               editType="dropdownedit"
               edit={departmentParams}
             />
@@ -238,12 +318,20 @@ export default function App() {
               editType="numericedit"
             />
             <ColumnDirective
-              field="IsActive"
-              headerText="Active"
-              width="100"
-              textAlign="Center"
-              displayAsCheckBox={true}
-              editType="booleanedit"
+              field="JoinedDate"
+              headerText="Joined Date"
+              width="140"
+              type="date"
+              textAlign="Right"
+              format="yMd"
+              editType="datepickeredit"
+            />
+            <ColumnDirective
+              field="Location"
+              headerText="Location"
+              width="140"
+              editType="dropdownedit"
+              edit={locationParams}
             />
           </ColumnsDirective>
 

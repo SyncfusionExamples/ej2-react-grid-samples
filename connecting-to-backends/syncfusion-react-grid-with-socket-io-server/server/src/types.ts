@@ -1,10 +1,12 @@
 export interface Employee {
-  EmployeeID: number;
-  FirstName: string;
-  LastName: string;
-  Department: string;
-  Salary: number;
-  IsActive: boolean;
+  EmployeeID: string;        // e.g. "EMP-1001"
+  EmployeeName: string;      // e.g. "Oscar King"
+  Email: string;             // e.g. "oscar.king@example.com"
+  Contact: string;           // e.g. "(711) 555-4444"
+  Department: string;        // e.g. "Sales Representative"
+  Salary: number;            // e.g. 100693
+  JoinedDate: string;        // ISO string e.g. "2026-03-12T06:35:47.969Z"
+  Location: string;          // e.g. "Albuquerque"
 }
 
 // Shape of a where-group / predicate object sent by the UrlAdaptor in the POST body
