@@ -5,8 +5,17 @@ using LinqToDB.DataProvider.MySql;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddControllers().AddNewtonsoftJson();
-
+// Controllers with System.Text.Json configured to KEEP PascalCase
+builder.Services.AddControllers()
+    .AddJsonOptions(o =>
+    {
+        // Keep property names as declared in C# (PascalCase)
+        o.JsonSerializerOptions.PropertyNamingPolicy = null;
+        // Keep dictionary keys as-is too
+        o.JsonSerializerOptions.DictionaryKeyPolicy = null;
+        // Allow case-insensitive reads (accept camelCase or PascalCase on input)
+        o.JsonSerializerOptions.PropertyNameCaseInsensitive = true;
+    });
 // CORS (dev)
 builder.Services.AddCors(options =>
 {
