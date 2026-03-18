@@ -24,12 +24,12 @@ const App: React.FC = () => {
     insertUrl: 'http://localhost:5283/api/grid/insert',
     updateUrl: 'http://localhost:5283/api/grid/update',
     removeUrl: 'http://localhost:5283/api/grid/remove',
-    batchUrl: 'http://localhost:5283/api/grid/batch',
+    //batchUrl: 'http://localhost:5283/api/grid/batch',
     adaptor: new UrlAdaptor(),
   });
 
   const filterSettings: FilterSettingsModel = { type: 'Excel' }
-  const editSettings: EditSettingsModel = { allowAdding: true, allowEditing: true, allowDeleting: true, mode: 'Batch' };
+  const editSettings: EditSettingsModel = { allowAdding: true, allowEditing: true, allowDeleting: true };
   const toolbar: ToolbarItems[] = ['Add', 'Edit', 'Delete', 'Update', 'Cancel', 'Search'];
 
   // Value accessor for Amount column
