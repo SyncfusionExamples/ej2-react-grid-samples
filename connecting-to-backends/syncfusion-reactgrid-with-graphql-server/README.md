@@ -33,7 +33,7 @@ GraphQL is a query language that allows applications to request exactly the data
     cd GraphQLServer
     npm start
   ```
-  The server is now running at http://localhost:4205/.
+- The server is now running at http://localhost:4205/.
 
 **Run the client**
  - Execute the below commands to run the client application.
@@ -105,3 +105,27 @@ The Syncfusion DataManager sends a single JSON payload containing all operation 
 
 ## Reference
 The [user guide](https://ej2.syncfusion.com/react/documentation/grid/connecting-to-backends/graphql-nodejs-server) provides detailed directions in a clear, step-by-step format.
+
+## Steps to download GitHub samples using DownGit
+
+1. **Open the DownGit Website**
+
+    Go to the official DownGit tool: https://minhaskamal.github.io/DownGit
+
+2. **Copy the GitHub URL**
+
+    - Navigate to the sample folder you want to download and copy its URL.
+    - Example : https://github.com/SyncfusionExamples/ej2-react-grid-samples/tree/master/connecting-to-backends/syncfusion-reactgrid-with-graphql-server
+
+3. **Paste the URL into DownGit**  
+
+    In the DownGit input box, paste the copied GitHub URL.
+
+4. **Download the ZIP**
+
+    - Click **Download**.
+    - DownGit will generate a ZIP file of the selected folder, which you can save and extract locally.
+
+5. **Reference** 
+    
+    For more details or to explore the project, visit the official [DownGit GitHub repository](https://github.com/MinhasKamal/DownGit).
