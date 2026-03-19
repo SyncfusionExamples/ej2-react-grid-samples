@@ -24,7 +24,7 @@ const App: React.FC = () => {
     insertUrl: 'http://localhost:5283/api/grid/insert',
     updateUrl: 'http://localhost:5283/api/grid/update',
     removeUrl: 'http://localhost:5283/api/grid/remove',
-    //batchUrl: 'http://localhost:5283/api/grid/batch',
+    // batchUrl: 'http://localhost:5283/api/grid/batch',
     adaptor: new UrlAdaptor(),
   });
 

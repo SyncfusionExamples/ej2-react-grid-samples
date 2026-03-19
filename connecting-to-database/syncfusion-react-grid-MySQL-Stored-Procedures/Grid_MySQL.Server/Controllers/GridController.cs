@@ -82,7 +82,7 @@ namespace Grid_MySQL.Server.Controllers
         [HttpPost("remove")]
         public async Task<IActionResult> Remove([FromBody] CRUDModel<Transaction> model)
         {
-            var key = int.Parse(model.Key.ToString()); ;
+            var key = int.Parse(model.Key.ToString());
             
             // Call stored procedure; it returns the number of affected rows.
             var affected = await _db.SpDeleteTransactionAsync(key);
