@@ -159,7 +159,7 @@ CORS_ALLOWED_ORIGINS = [
 
 1. **Open the DownGit Website**
 
-    Go to the official DownGit tool: https://minhaskamal.github.io/DownGit
+    Go to the official DownGit tool: https://downgit.github.io/#/home
 
 2. **Copy the GitHub URL**
 
@@ -174,8 +174,4 @@ CORS_ALLOWED_ORIGINS = [
 
     - Click **Download**.
     - DownGit will generate a ZIP file of the selected folder, which you can save and extract locally.
-
-5. **Reference** 
-    
-    For more details or to explore the project, visit the official [DownGit GitHub repository](https://github.com/MinhasKamal/DownGit).
 
