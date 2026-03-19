@@ -1,4 +1,4 @@
-## Steps to download GitHub samples using DownGit
+# Steps to download GitHub samples using DownGit
 
 1. **Open the DownGit Website**
 
