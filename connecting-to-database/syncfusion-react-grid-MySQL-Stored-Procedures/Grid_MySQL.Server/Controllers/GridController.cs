@@ -12,7 +12,7 @@ namespace Grid_MySQL.Server.Controllers
         private readonly AppDataConnection _db = db;
 
         // POST: /api/grid/url
-        // All data actions (search, filter, multi-column sort, paging) are delegated to sp_GetTransactions via pre-built MySQL clause strings.
+        // All data actions (search, filter, multi-column sort, paging) are delegated to GetTransactions via pre-built MySQL clause strings.
         [HttpPost("url")]
         public async Task<IActionResult> UrlDatasource([FromBody] DataManagerRequest dm)
         {
@@ -39,7 +39,7 @@ namespace Grid_MySQL.Server.Controllers
         }
 
         // POST: /api/grid/insert
-        // Delegates to sp_InsertTransaction and returns the new row with its generated Id.
+        // Delegates to InsertTransaction and returns the new row with its generated Id.
         [HttpPost("insert")]
         public async Task<IActionResult> Insert([FromBody] CRUDModel<Transaction> model)
         {
@@ -60,7 +60,7 @@ namespace Grid_MySQL.Server.Controllers
         }
 
         // POST: /api/grid/update
-        // Delegates to sp_UpdateTransaction.  Returns 404 when the row is not found.
+        // Delegates to UpdateTransaction.  Returns 404 when the row is not found.
         [HttpPost("update")]
         public async Task<IActionResult> Update([FromBody] CRUDModel<Transaction> model)
         {
@@ -78,12 +78,12 @@ namespace Grid_MySQL.Server.Controllers
         }
 
         // POST: /api/grid/remove
-        // Delegates to sp_DeleteTransaction.  Returns 404 when the row is not found.
+        // Delegates to DeleteTransaction.  Returns 404 when the row is not found.
         [HttpPost("remove")]
         public async Task<IActionResult> Remove([FromBody] CRUDModel<Transaction> model)
         {
-            var key = int.Parse(model.Key.ToString());
-            
+            var key = int.Parse(model.Key.ToString()); ;
+
             // Call stored procedure; it returns the number of affected rows.
             var affected = await _db.SpDeleteTransactionAsync(key);
             if (affected == 0)
@@ -100,7 +100,7 @@ namespace Grid_MySQL.Server.Controllers
         {
             using var tr = await _db.BeginTransactionAsync();
 
-            // INSERT many – sp_InsertTransaction is called once per added row.
+            // INSERT many – InsertTransaction is called once per added row.
             if (payload.Added != null && payload.Added.Count > 0)
             {
                 foreach (var r in payload.Added)
@@ -113,14 +113,14 @@ namespace Grid_MySQL.Server.Controllers
                 }
             }
 
-            // UPDATE many – sp_UpdateTransaction is called once per changed row.
+            // UPDATE many – UpdateTransaction is called once per changed row.
             if (payload.Changed != null && payload.Changed.Count > 0)
             {
                 foreach (var r in payload.Changed)
                     await _db.SpUpdateTransactionAsync(r);
             }
 
-            // DELETE many – sp_DeleteTransaction is called once per deleted row.
+            // DELETE many – DeleteTransaction is called once per deleted row.
             if (payload.Deleted != null && payload.Deleted.Count > 0)
             {
                 foreach (var r in payload.Deleted)
