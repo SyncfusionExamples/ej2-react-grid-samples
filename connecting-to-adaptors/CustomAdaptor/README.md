@@ -7,7 +7,7 @@
 2. **Copy the GitHub URL**
 
     - Navigate to the sample folder you want to download and copy its URL.
-    - Example : https://github.com/SyncfusionExamples/ej2-react-grid-samples/tree/1010354-AddApolloGraphQLSample/connecting-to-adaptors/CustomAdaptor
+    - Example : https://github.com/SyncfusionExamples/ej2-react-grid-samples/tree/master/connecting-to-adaptors/CustomAdaptor
 
 3. **Paste the URL into DownGit**  
 

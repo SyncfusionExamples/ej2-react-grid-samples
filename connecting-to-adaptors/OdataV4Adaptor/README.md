@@ -48,7 +48,7 @@ https://localhost:<port>/odata/Orders
 2. **Copy the GitHub URL**
 
     - Navigate to the sample folder you want to download and copy its URL.
-    - Example : https://github.com/SyncfusionExamples/ej2-react-grid-samples/tree/1010354-AddApolloGraphQLSample/connecting-to-adaptors/OdataV4Adaptor
+    - Example : https://github.com/SyncfusionExamples/ej2-react-grid-samples/tree/master/connecting-to-adaptors/OdataV4Adaptor
 
 3. **Paste the URL into DownGit**  
 
