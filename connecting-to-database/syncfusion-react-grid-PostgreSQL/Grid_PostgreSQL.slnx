@@ -1,0 +1,7 @@
+<Solution>
+  <Project Path="grid_postgresql.client/grid_postgresql.client.esproj">
+    <Build />
+    <Deploy />
+  </Project>
+  <Project Path="Grid_PostgreSQL.Server/Grid_PostgreSQL.Server.csproj" />
+</Solution>
