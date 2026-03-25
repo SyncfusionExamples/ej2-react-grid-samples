@@ -120,12 +120,12 @@ The [user guide](https://ej2.syncfusion.com/react/documentation/grid/connecting-
 
 1. **Open the DownGit Website**
 
-    Go to the official DownGit tool: https://minhaskamal.github.io/DownGit
+    Go to the official DownGit tool: https://downgit.github.io/#/home
 
 2. **Copy the GitHub URL**
 
     - Navigate to the sample folder you want to download and copy its URL.
-    - Example : https://github.com/SyncfusionExamples/ej2-react-grid-samples/tree/1010354-AddApolloGraphQLSample/connecting-to-backends/syncfusion-reactgrid-with-graphql-server
+    - Example : https://github.com/SyncfusionExamples/ej2-react-grid-samples/tree/master/connecting-to-backends/syncfusion-reactgrid-with-django-server
 
 3. **Paste the URL into DownGit**  
 
@@ -135,7 +135,3 @@ The [user guide](https://ej2.syncfusion.com/react/documentation/grid/connecting-
 
     - Click **Download**.
     - DownGit will generate a ZIP file of the selected folder, which you can save and extract locally.
-
-5. **Reference** 
-    
-    For more details or to explore the project, visit the official [DownGit GitHub repository](https://github.com/MinhasKamal/DownGit).
