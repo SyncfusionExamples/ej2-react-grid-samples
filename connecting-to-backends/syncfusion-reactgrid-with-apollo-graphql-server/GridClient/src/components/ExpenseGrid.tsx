@@ -212,12 +212,10 @@ const ExpenseGrid: React.FC = () => {
   if (!collectedData.employeeName.trim()) {
     // Optional: show your own message or prevent save
     args.cancel = true;
-    alert("Employee Name is required");
     return;
   }
   if (!collectedData.employeeEmail.trim()) {
     args.cancel = true;
-    alert("Employee Email is required");
     return;
   }
  
