@@ -191,7 +191,7 @@ const ExpenseGrid: React.FC = () => {
     description:      getVal("#description") || "",
     amount:           Number(getVal("#amount") ?? 0),
     taxPct:           Number(getVal("#taxPct") ?? 0),
-    totalAmount:      0, // will be recalculated below
+    totalAmount:      0, 
     ExpenseDate:      getVal("#expenseDate") 
                         ? new Date(getVal("#expenseDate")).toISOString().split("T")[0] 
                         : undefined,
@@ -203,14 +203,12 @@ const ExpenseGrid: React.FC = () => {
     employeeAvatarUrl: (form.querySelector("#employeeAvatarUrlHidden") as HTMLInputElement)?.value || "",
   };
 
-  // Calculate totalAmount (backend might do this too, but safer to send consistent value)
+  // Calculate totalAmount
   collectedData.totalAmount = collectedData.amount + 
     (collectedData.amount * (collectedData.taxPct || 0));
 
   // For new records → make sure required fields are not empty
-  // (you can also add more client-side validation here if you want)
   if (!collectedData.employeeName.trim()) {
-    // Optional: show your own message or prevent save
     args.cancel = true;
     return;
   }
@@ -255,8 +253,8 @@ const ExpenseGrid: React.FC = () => {
             () => {
               const input = document.querySelector('#taxPct') as any;
               const inst = input?.ej2_instances?.[0];     // EJ2 NumericTextBox instance
-              if (!inst) return false;                    // no instance => invalid
-              const v = inst.value;                       // numeric underlying value (0.5 for 50%)
+              if (!inst) return false;                    
+              const v = inst.value;                       
               if (v == null || isNaN(v)) return false;
               return v >= 0.02 && v <= 0.50;              // 2% to 12%
             },
