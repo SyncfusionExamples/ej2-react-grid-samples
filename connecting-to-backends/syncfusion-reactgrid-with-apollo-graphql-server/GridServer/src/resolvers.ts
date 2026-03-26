@@ -102,7 +102,7 @@ export const resolvers = {
    * Behavior:
    * - Clones the in-memory dataset.
    * - Builds a `Query` and applies filtering, searching, and sorting
-   *   based on the incoming `datamanager` (Syncfusion `DataStateChangeEventArgs`).
+   *   based on the incoming `datamanager` parameters.
    * - Executes the query locally to get the transformed dataset.
    * - Computes the total `count` **before paging** (used for grid pagination).
    * - Applies paging and returns the current page `result` along with `count`.
