@@ -20,7 +20,6 @@ async function start() {
   });
 
   const port = Number(process.env.PORT) || 4000;
-  //const port = Number(process.env.PORT) ?? 4000;
 
   const { url } = await startStandaloneServer(server, {
     listen: { port },
