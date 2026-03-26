@@ -104,7 +104,6 @@ export const resolvers = {
    * - Applies paging and returns the current page `result` along with `count`.
    *
    * @param datamanager - Grid state (filtering, searching, sorting, skip/take, etc.).
-   * @returns An object containing the paged `result` and the total `count` (pre-paging).
    */
     getExpenses: (_: unknown, { datamanager }: GetExpensesArgs) => {
       let data: ExpenseRecord[] = [...expenses];
@@ -126,11 +125,7 @@ export const resolvers = {
     /**
      * Creates a new expense record.
      *
-     * Behavior:
-     * Accepts an ExpenseInput, adds it directly to the in-memory expenses array, and returns it as-is.
-     *
      * @param value - The full expense payload to insert into the dataset.
-     * @returns The newly created `ExpenseRecord`.
     */
     addExpense: (_: unknown, { value }: { value: ExpenseInput }): ExpenseRecord => { 
       expenses.push(value as ExpenseRecord);
@@ -159,7 +154,6 @@ export const resolvers = {
      *
      * @param args.key - The lookup key value (e.g., an expenseId or other field).
      * @param args.keyColumn - The field name to match against (defaults to "expenseId").
-     * @returns The deleted expense object.
    */
    deleteExpense: (_parent: unknown, { key, keyColumn = 'expenseId' }: ExpenseArgs) => {
       const idx = expenses.findIndex((e: ExpenseRecord | any) => String(e[keyColumn]) === String(key));
