@@ -19,7 +19,7 @@ export interface ExpenseRecord {
 
 export type GroupCaptionData = {
   field: string;
-  key: string | number | boolean | null; // removed Date
+  key: string | number | boolean | null;
   count: number;
   headerText: string;
 };
