@@ -127,7 +127,7 @@ export const resolvers = {
      * Creates a new expense record.
      *
      * Behavior:
-     * - Accepts an ExpenseInput, adds it directly to the in-memory expenses array, and returns it as-is.
+     * Accepts an ExpenseInput, adds it directly to the in-memory expenses array, and returns it as-is.
      *
      * @param value - The full expense payload to insert into the dataset.
      * @returns The newly created `ExpenseRecord`.
