@@ -30,7 +30,7 @@ export interface FilterPredicate {
   operator: string;
   value: any;
   ignoreCase?: boolean;
-  ignoreAccent?: boolean; // add this if you pass it to Syncfusion's Predicate
+  ignoreAccent?: boolean; 
 }
 
 // Block (composite) predicate
@@ -40,8 +40,8 @@ export interface FilterBlock {
   value: string;
   ignoreAccent?: boolean;
   operator: string;
-  ignoreCase?: boolean; // optional block-level flag
-  isComplex?: boolean;  // optional marker (not strictly needed for type narrowing)
+  ignoreCase?: boolean; 
+  isComplex?: boolean;  
   predicates: (FilterPredicate | FilterBlock)[];
 }
 
@@ -51,7 +51,7 @@ export interface AvatarEntry {
 };
 
 export interface ExpenseInput {
-  expenseId: string;      // ID (optional – often generated server-side)
+  expenseId: string;     
   employeeName: string;
   employeeEmail: string;
   employeeAvatarUrl: string;
@@ -72,15 +72,15 @@ export interface ExpenseInput {
 
 export interface SortParam {
   name: string;
-  direction: 'asc' | 'desc' | string; // adjust if needed
+  direction: 'asc' | 'desc' | string; 
 }
 
 export interface DataManagerInput {
   skip: number
   take: number
   group: string[]
-  sorted?: string | SortParam[];   // ⬅ Accept string OR array
-  search?: string ; // ⬅ Accept string OR array
+  sorted?: string | SortParam[];  
+  search?: string ; 
   where: string      
   requiresCounts: boolean
   aggregates: string[]
