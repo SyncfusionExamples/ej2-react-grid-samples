@@ -1,8 +1,4 @@
-# ej2-react-grid-samples
-
-This repository contains categorized samples for the Syncfusion EJ2 React Grid, demonstrating real-world use cases including connecting to databases, integrating with various backends, and common reusable configurations
-
-## Steps to download GitHub samples using DownGit
+# Steps to download GitHub samples using DownGit
 
 1. **Open the DownGit Website**
 
@@ -11,7 +7,7 @@ This repository contains categorized samples for the Syncfusion EJ2 React Grid, 
 2. **Copy the GitHub URL**
 
     - Navigate to the sample folder you want to download and copy its URL.
-    - Example : https://github.com/SyncfusionExamples/ej2-react-grid-samples/tree/master/connecting-to-database/syncfusion-react-grid-SQLite
+    - Example : https://github.com/SyncfusionExamples/ej2-react-grid-samples/tree/master/connecting-to-adaptors/CustomAdaptor
 
 3. **Paste the URL into DownGit**  
 
