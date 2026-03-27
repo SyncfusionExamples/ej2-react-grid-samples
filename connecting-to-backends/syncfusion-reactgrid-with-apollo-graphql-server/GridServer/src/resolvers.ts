@@ -1,0 +1,165 @@
+import GraphQLJSON from 'graphql-type-json';
+import { DataManager, Query, DataUtil, Predicate } from '@syncfusion/ej2-data';
+import { expenses } from './data';
+import { ExpenseRecord, GetExpensesArgs, ExpenseInput,ExpenseArgs, DataManagerInput, FilterBlock, FilterPredicate } from './types';
+
+DataUtil.serverTimezoneOffset = 0;
+
+// ---------- Utility helpers ----------
+function parseArg<T = any>(arg?: string | T): T | undefined {
+  if (arg === undefined || arg === null) return undefined;
+  if (typeof arg === 'string') {
+    try {
+      return JSON.parse(arg);
+    } catch {
+      return undefined;
+    }
+  }
+  return arg;
+}
+
+function buildPredicate(predicate: FilterBlock): Predicate | null {
+  if (!predicate) return null;
+
+  if (predicate.isComplex && Array.isArray(predicate.predicates)) {
+    const children = predicate.predicates
+      .map((child: any) => buildPredicate(child))
+      .filter(Boolean) as Predicate[];
+
+    if (!children.length) return null;
+
+    return children.reduce((acc, curr, idx) => {
+      if (idx === 0) return curr;
+      return predicate.condition?.toLowerCase() === 'or' ? acc.or(curr) : acc.and(curr);
+    });
+  }
+
+  if (predicate.field) {
+    return new Predicate(predicate.field, predicate.operator, predicate.value, predicate.ignoreCase, predicate.ignoreAccent);
+  }
+
+  return null;
+}
+
+// ---------- Feature-specific helpers ----------
+function performFiltering(query: Query, datamanager: DataManagerInput) {
+  const whereArg = parseArg<any[]>(datamanager?.where);
+  if (Array.isArray(whereArg) && whereArg.length) {
+    const rootPredicate = buildPredicate(whereArg[0]);
+    if (rootPredicate) {
+      query.where(rootPredicate);
+    }
+  }
+}
+
+function performSearching(query: Query, datamanager: DataManagerInput) {
+  const searchArg = parseArg<any[]>(datamanager?.search);
+  if (Array.isArray(searchArg) && searchArg.length) {
+    const { fields, key, operator, ignoreCase } = searchArg[0];
+    if (key && Array.isArray(fields) && fields.length) {
+      query.search(key, fields, operator, ignoreCase);
+    }
+  }
+}
+
+
+function performSorting(query: Query, datamanager: DataManagerInput) {
+  const sortedArg = datamanager?.sorted;
+  if (Array.isArray(sortedArg)) {
+    sortedArg.forEach(({ name, direction }) => {
+      query.sortBy(name, direction);
+    });
+  }
+}
+
+function performPaging( data: ExpenseRecord[], datamanager?: DataManagerInput): ExpenseRecord[] {
+  if (
+    typeof datamanager?.skip === 'number' &&
+    typeof datamanager?.take === 'number'
+  ) {
+    const pageQuery = new Query().page(
+      datamanager.skip / datamanager.take + 1,
+      datamanager.take
+    );
+    return new DataManager(data).executeLocal(pageQuery) as ExpenseRecord[];
+  }
+
+  if (typeof datamanager?.take === 'number') {
+    const pageQuery = new Query().page(1, datamanager.take);
+    return new DataManager(data).executeLocal(pageQuery) as ExpenseRecord[];
+  }
+
+  return data;
+}
+
+// ---------- Resolvers ----------
+export const resolvers = {
+  JSON: GraphQLJSON,
+  Query: {
+    /**
+   * Retrieves expenses using Syncfusion DataManager semantics.
+   *
+   * Behavior:
+   * - Processes the in-memory dataset by applying query operations (filtering, searching, sorting) and computing the total count.
+   * - Applies paging and returns the current page `result` along with `count`.
+   *
+   * @param datamanager - Grid state (filtering, searching, sorting, skip/take, etc.).
+   */
+    getExpenses: (_: unknown, { datamanager }: GetExpensesArgs) => {
+      let data: ExpenseRecord[] = [...expenses];
+      const query = new Query();
+
+      performFiltering(query, datamanager);
+      performSearching(query, datamanager);
+      performSorting(query, datamanager);
+      
+      data = new DataManager(data).executeLocal(query) as ExpenseRecord[];
+      const count = data.length;
+
+      data = performPaging(data, datamanager);
+
+      return { result: data, count };
+    },
+  },
+  Mutation: {
+    /**
+     * Creates a new expense record.
+     *
+     * @param value - The full expense payload to insert into the dataset.
+    */
+    addExpense: (_: unknown, { value }: { value: ExpenseInput }): ExpenseRecord => { 
+      expenses.push(value as ExpenseRecord);
+      return value as ExpenseRecord;
+    },
+     
+    /**
+     * Update an existing expense by a dynamic key column.
+     *
+     * @param args.key - The lookup key value (e.g., an expenseId or other field).
+     * @param args.keyColumn - The field name to match against (defaults to "expenseId").
+     * @param args.value - Partial fields to merge into the existing expense.
+   */
+    updateExpense: (_parent: unknown,{ key, keyColumn = "expenseId", value }: ExpenseArgs): ExpenseRecord => {
+      const expense = expenses.find(
+        (e: ExpenseRecord | any) => String(e[keyColumn]) === String(key)
+      );
+
+      if (!expense) throw new Error("Expense not found");
+      Object.assign(expense, value);
+      return expense;
+    },
+    
+    /**
+     * Delete an existing expense by a dynamic key column.
+     *
+     * @param args.key - The lookup key value (e.g., an expenseId or other field).
+     * @param args.keyColumn - The field name to match against (defaults to "expenseId").
+   */
+   deleteExpense: (_parent: unknown, { key, keyColumn = 'expenseId' }: ExpenseArgs) => {
+      const idx = expenses.findIndex((e: ExpenseRecord | any) => String(e[keyColumn]) === String(key));
+      if (idx === -1) throw new Error('Expense not found');
+      const [removed] = expenses.splice(idx, 1);
+      return removed;
+    }
+  },
+};
