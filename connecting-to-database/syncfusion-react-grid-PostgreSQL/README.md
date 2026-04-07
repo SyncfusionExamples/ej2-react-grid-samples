@@ -268,7 +268,7 @@ The **API Service** intercepts data operations and handles:
 
 | Operation | HTTP Method | Endpoint | Purpose |
 |-----------|-------------|----------|---------|
-| Read/Filter/Sort/Page | POST | `/api/PurchaseOrder/url` | Retrieves data with applied filters, sorting, and paging |
+| Read/Filter/Sort/Page | POST | `/api/PurchaseOrder/getpurchasedata` | Retrieves data with applied filters, sorting, and paging |
 | Insert | POST | `/api/PurchaseOrder/insert` | Adds a new purchase order record |
 | Update | POST | `/api/PurchaseOrder/update` | Updates an existing purchase order record |
 | Delete | POST | `/api/PurchaseOrder/remove` | Deletes a purchase order record |
@@ -307,7 +307,7 @@ The **API Service** intercepts data operations and handles:
 ### Grid Not Loading Data
 - Check browser console for errors (F12)
 - Verify the API is running and accessible at the configured URL
-- Test the API endpoint directly using Postman: POST to `https://localhost:7102/api/PurchaseOrder/url`
+- Test the API endpoint directly using Postman: POST to `https://localhost:7102/api/PurchaseOrder/getpurchasedata`
 - Ensure the DataManager is correctly configured with the API URL
 - Check that Entity Framework Core DbContext is properly registered in `Program.cs`
 - Verify `appsettings.json` has the correct connection string
