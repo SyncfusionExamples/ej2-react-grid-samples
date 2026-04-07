@@ -32,7 +32,7 @@ const App: React.FC = () => {
     const requiredRule = { required: true };
 
     const dataManager = useMemo(() => new DataManager({
-        url: 'https://localhost:7016/api/PurchaseOrder/url',
+        url: 'https://localhost:7016/api/PurchaseOrder/getpurchasedata',
         insertUrl: 'https://localhost:7016/api/PurchaseOrder/insert',
         updateUrl: 'https://localhost:7016/api/PurchaseOrder/update',
         removeUrl: 'https://localhost:7016/api/PurchaseOrder/remove',
@@ -60,8 +60,8 @@ const App: React.FC = () => {
                 <ColumnDirective field="ApprovedBy" headerText="Approved By" width="150" template={approvedByTemplate} validationRules={requiredRule} textAlign="Right" />
                 <ColumnDirective field="OrderDate" headerText="Order Date" width="150" type="date" format="yMd" editType="datepickeredit" validationRules={requiredRule} textAlign="Right" />
                 <ColumnDirective field="ExpectedDeliveryDate" headerText="Expected Delivery" width="170" type="date" format="yMd" editType="datepickeredit" validationRules={requiredRule} />
-                <ColumnDirective field="CreatedOn" headerText="Created At" width="150" type="datetime" format="yMd HH:mm" editType="datepickeredit" validationRules={requiredRule} textAlign="Right" />
-                <ColumnDirective field="UpdatedOn" headerText="Updated At" width="150" type="datetime" format="yMd HH:mm" editType="datepickeredit" validationRules={requiredRule} textAlign="Right" />
+                <ColumnDirective field="CreatedOn" headerText="Created At" width="150" type="datetime" format="yMd HH:mm" textAlign="Right" allowEditing={false} />
+                <ColumnDirective field="UpdatedOn" headerText="Updated At" width="150" type="datetime" format="yMd HH:mm" textAlign="Right" allowEditing={false} />
             </ColumnsDirective>
             <Inject services={[Page, Sort, Filter, Group, Toolbar, Edit]} />
         </GridComponent>

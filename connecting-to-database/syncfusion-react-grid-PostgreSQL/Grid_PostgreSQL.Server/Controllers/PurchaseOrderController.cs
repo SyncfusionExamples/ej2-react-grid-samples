@@ -18,7 +18,7 @@ namespace Grid_PostgreSQL.Server.Controllers
         }
 
         // READ
-        [HttpPost("url")]
+        [HttpPost("getpurchasedata")]
         public IActionResult UrlDataSource([FromBody] DataManagerRequest request)
         {
             IQueryable<PurchaseOrder> purchaseOrdersQuery = _dbContext.PurchaseOrders.AsNoTracking();
