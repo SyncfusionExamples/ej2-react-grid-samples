@@ -1,0 +1,30 @@
+﻿<div>
+    <div class="stock-header">
+         <h1>Live Stock Market</h1>
+        <p className="subtitle">Real-time stock prices updated every 2 seconds via SignalR</p>
+    </div>
+    <ejs-grid #grid [dataSource]='data' (created)="created()"  (queryCellInfo)="queryCellInfo($event)" [toolbar]='toolbar' height="520" [allowFiltering]="true" [allowSorting]="true" [filterSettings]="filterSettings">
+    <e-columns>
+        <e-column field='StockId' headerText='ID' width='0' visible='false' isPrimaryKey='true'></e-column>
+        <e-column field='Symbol' headerText='Symbol' width='120'>
+            <ng-template #template let-data>
+                <div class="symbol-cell">
+                    <span class="symbol-pill">{{data.Symbol}}</span>
+                </div>
+            </ng-template>
+        </e-column>
+        <e-column field='Company' headerText='Company' width='220'>
+            <ng-template #template let-data>
+                <div class="company-cell">
+                    <div class="company-name">{{data.Company}}</div>
+                </div>
+            </ng-template>
+        </e-column>
+        <e-column field='CurrentPrice' headerText='Current Price' width='120' textAlign='Right' format='C2' [allowFiltering]="false"></e-column>
+        <e-column field='ChangeDisplay' headerText='Change' width='100' textAlign='Right' [allowFiltering]="false"></e-column>
+        <e-column field='ChangePercentDisplay' headerText='Change %' width='100' textAlign='Right' [allowFiltering]="false"></e-column>
+        <e-column field='VolumeDisplay' headerText='Volume' width='120' textAlign='Right' [allowFiltering]="false"></e-column>
+        <e-column field='LastUpdated' headerText='Last Updated' width='160' textAlign='Center'></e-column>
+    </e-columns>
+</ejs-grid>
+</div>
