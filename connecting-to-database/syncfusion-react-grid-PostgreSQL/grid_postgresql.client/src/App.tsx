@@ -52,7 +52,7 @@ const App: React.FC = () => {
                 <ColumnDirective field="ItemName" headerText="Item Name" width="150" editType="dropdownedit" validationRules={requiredRule} />
                 <ColumnDirective field="ItemCategory" headerText="Category" width="120" editType="dropdownedit" validationRules={requiredRule} />
                 <ColumnDirective field="Quantity" headerText="Quantity" width="110" textAlign="Right" type="number" editType="numericedit" validationRules={requiredRule} />
-                <ColumnDirective field="UnitPrice" headerText="Unit Price" width="130" textAlign="Right" type="number" format="C2" template={priceTemplate} editType="numericedit" validationRules={requiredRule} />
+                <ColumnDirective field="UnitPrice" headerText="Unit Price" width="130" textAlign="Right" type="number" template={priceTemplate} editType="numericedit" validationRules={requiredRule} />
                 <ColumnDirective field="TotalAmount" headerText="Total Amount" width="150" textAlign="Right" type="number" format="C2" allowEditing={false} editType="numericedit" />
                 <ColumnDirective field="Status" headerText="Status" width="110" template={statusTemplate} editType="dropdownedit" validationRules={requiredRule} />
                 <ColumnDirective field="OrderedBy" headerText="Ordered By" width="150" validationRules={requiredRule} />

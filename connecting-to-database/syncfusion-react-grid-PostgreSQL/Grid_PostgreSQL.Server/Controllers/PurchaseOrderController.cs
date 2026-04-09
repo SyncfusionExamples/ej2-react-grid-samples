@@ -116,6 +116,7 @@ namespace Grid_PostgreSQL.Server.Controllers
                 {
                     purchaseOrder.TotalAmount = purchaseOrder.Quantity * purchaseOrder.UnitPrice;
                     purchaseOrder.UpdatedOn = DateTime.UtcNow; // safe with timestamp with time zone
+                    purchaseOrder.CreatedOn = DateTime.UtcNow;
                     _dbContext.PurchaseOrders.Attach(purchaseOrder);
                     _dbContext.Entry(purchaseOrder).State = EntityState.Modified;
                 }
