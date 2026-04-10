@@ -5,7 +5,6 @@ import {
   ColumnsDirective,
   ColumnDirective,
   Inject,
-  Page,
   Sort,
   Filter,
   Search,
@@ -330,7 +329,7 @@ const StockGrid: React.FC = () => {
             textAlign="Center"
           />
         </ColumnsDirective>
-        <Inject services={[Page, Sort, Filter, Search, Toolbar]} />
+        <Inject services={[Sort, Filter, Search, Toolbar]} />
       </GridComponent>
     </div>
   );
