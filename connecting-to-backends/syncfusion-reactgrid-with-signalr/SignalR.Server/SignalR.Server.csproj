@@ -15,15 +15,13 @@
     </PackageReference>
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
   </ItemGroup>
-    <ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="8.0.8" />
     <PackageReference Include="Syncfusion.EJ2.AspNet.Core" Version="33.1.44" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\signalr.client\signalr.client.esproj">
-      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
-    </ProjectReference>
   </ItemGroup>
 
 </Project>

@@ -90,7 +90,7 @@ namespace SignalR.Server.Models
         }
 
         private static void InitializeStocks()
-    {
+        {
         var stockData = new[]
         {
            // Technology

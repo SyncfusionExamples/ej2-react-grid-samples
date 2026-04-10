@@ -1,16 +1,20 @@
-# Syncfusion Angular Grid with SignalR
+# Syncfusion React Grid with SignalR
 
-The Syncfusion Angular Grid component supports real-time data binding using SignalR, enabling automatic grid updates as data changes on the server. This capability proves essential for applications requiring live updates and multi-client synchronization.
+The Syncfusion<sup style="font-size:70%">&reg;</sup> React Grid supports real-time data binding using SignalR, a powerful library for bi-directional communication between servers and clients. This approach enables live data updates without page refreshes, making it ideal for applications that require instant information delivery such as stock tickers, live dashboards, and real-time notifications.
 
-## Key Features
+**What is SignalR?**
 
-- **Real-Time Communication**: Establish persistent connections for instant data updates across all connected clients.
-- **Bidirectional**: Support both server-to-client (broadcasting) and client-to-server (commands) communication.
-- **Automatic Transport Selection**: Intelligently choose the best transport protocol (WebSockets, SSE, Long Polling) based on browser and server capabilities.
-- **Scalable Broadcasting**: Efficiently broadcast updates to multiple clients simultaneously using SignalR groups.
-- **Built-in Reconnection**: Automatically handles client reconnection with exponential back off retry logic.
-- **No Page Refresh Required**: Update UI dynamically without reloading the page.
-Cross-Platform: Works across browsers, mobile devices, and desktop applications.
+[SignalR](https://learn.microsoft.com/en-us/aspnet/signalr/) is an open-source .NET library that simplifies adding real-time web functionality to applications. It automatically handles the best transport method (WebSockets, Server-Sent Events, or Long Polling) and provides a high-level API for server-to-client and client-to-server communication. SignalR enables persistent two-way connections between clients and servers, allowing instant data synchronization without polling.
+
+**Key benefits of SignalR**
+
+- **Real-time communication**: Establish persistent connections for instant data updates across all connected clients.
+- **Bidirectional**: Support both server-to-client (broadcasting) and client-to-server communication.
+- **Automatic transport selection**: Intelligently choose the best transport protocol (WebSockets, SSE, Long Polling) based on browser and server capabilities.
+- **Scalable broadcasting**: Efficiently broadcast updates to multiple clients simultaneously using SignalR groups.
+- **Built-in reconnection**: Automatically handles client reconnection with exponential back off retry logic.
+- **No page refresh required**: Update UI dynamically without reloading the page.
+- **Cross-platform**: Works across browsers, mobile devices, and desktop applications.
 
 ## Prerequisites
 
@@ -18,8 +22,8 @@ Cross-Platform: Works across browsers, mobile devices, and desktop applications.
 | **Software / Package**         | **Recommended version**          | **Purpose**                                 |
 |-----------------------------|------------------------------|--------------------------------------   |
 | Node.js                     | 20.x LTS or later            | Runtime                                 |
-| npm / yarn / pnpm           | 9.x or later                 | Package manager                         | 
-| Angular CLI                 | 17.x                         | Build and serve the Angular client     |
+| npm / yarn / pnpm           | 11.x or later                | Package manager                         | 
+| Vite                        | 7.3.1                        | Use this to create the React application |
 | TypeScript                  | 5.x or later                 | Server‑side and client‑side type safety |
 
 ## Quick Start
@@ -51,24 +55,27 @@ Cross-Platform: Works across browsers, mobile devices, and desktop applications.
     npm install
     npm run dev
     ```
-- Open **https://127.0.0.1:58982/** in the browser.
+- Open **http://localhost:5173/** in the browser.
 
 
 ## Project Layout
 
 | **File/Folder** | **Purpose** |
 |-------------|---------|
-| `signalr.client/package.json` | Client package manifest and dev/start scripts (`npm start`, `npm run dev`). |
-| `signalr.client/src/main.ts` | Angular standalone bootstrap (bootstraps `AppComponent` with providers). |
-| `signalr.client/src/app/app.component.ts` | Client grid logic (DataManager, SignalR hub connection, `setCellValue` updates). |
-| `signalr.client/src/app/app.component.html` | Grid markup and column definitions for the Syncfusion grid. |
-| `signalr.client/src/app/app.component.css` | Client UI styles and cell styling classes. |
-| `SignalR.Server/` | ASP.NET Core backend with SignalR hubs, APIs, and background update service. |
-| `SignalR.Server/Program.cs` | Server startup: DI, SignalR, controllers, CORS, and hub mappings (`/stockHub`). |
-| `SignalR.Server/Controllers/StockController.cs` | Syncfusion `UrlDatasource` endpoint and other REST endpoints (GetAll, GetById, statistics). |
-| `SignalR.Server/Hubs/StockHub.cs` | SignalR hub that sends `InitializeStocks` and manages subscriptions. |
-| `SignalR.Server/Models/Stock.cs` | Server `Stock` model including raw values and `*Display` formatted fields. |
-| `SignalR.Server/Services/StockUpdateService.cs` | Background service that simulates price updates and broadcasts them to the `StockTraders` group. |
+| `signalr.client/package.json` | Client package manifest and dev/start scripts |
+| `signalr.client/tsconfig.json` / `tsconfig.app.json` | TypeScript configuration files for the client |
+| `signalr.client/src/main.tsx` | React application entry point |
+| `signalr.client/src/index.css` | Global styles for the client app |
+| `signalr.client/src/components/StockGrid.tsx` | React component that renders the Syncfusion Grid and uses SignalR for live updates |
+| `signalr.client/src/styles/StockGrid.css` | Styles for the `StockGrid` component (chips, colors, layout) |
+| `SignalR.Server/Program.cs` | Server entry configuring services, middleware, and SignalR hubs (maps `/stockHub`) |
+| `SignalR.Server/Controllers/StockController.cs` | API endpoints for initial grid datasource and CRUD operations |
+| `SignalR.Server/Hubs/StockHub.cs` | Lightweight SignalR hub; injects `StockDataService`, manages group membership (`StockTraders`) and sends initial `InitializeStocks` |
+| `SignalR.Server/Models/Stock.cs` | Server-side `Stock` model with raw fields and `*Display` formatted fields |
+| `SignalR.Server/Services/StockUpdateService.cs` | Background service that simulates price updates and broadcasts updates to the `StockTraders` group |
+| `SignalR.Server/Services/StockDataService.cs` | Small service wrapper around `Stock.GetAllStocks()` used by `StockHub` |
+| `SignalR.Server/appsettings.json` / `appsettings.Development.json` | Server configuration files |
+| `SignalR.Server/SignalR.Server.csproj` | Server project file with dependencies and build settings |
 
 
 ## Common Tasks
@@ -87,7 +94,7 @@ Cross-Platform: Works across browsers, mobile devices, and desktop applications.
 2. **Copy the GitHub URL**
 
     - Navigate to the sample folder you want to download and copy its URL.
-    -  Example : https://github.com/SyncfusionExamples/ej2-angular-grid-samples/tree/master/connecting-to-backends/syncfusion-angular-grid-apollo-server
+    -  Example : https://github.com/SyncfusionExamples/ej2-react-grid-samples/tree/master/connecting-to-backends/syncfusion-reactgrid-with-django-server
 
 3. **Paste the URL into DownGit**  
 
