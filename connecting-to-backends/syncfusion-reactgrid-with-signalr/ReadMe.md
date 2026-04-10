@@ -69,7 +69,7 @@ The Syncfusion<sup style="font-size:70%">&reg;</sup> React Grid supports real-ti
 | `signalr.client/src/components/StockGrid.tsx` | React component that renders the Syncfusion Grid and uses SignalR for live updates |
 | `signalr.client/src/styles/StockGrid.css` | Styles for the `StockGrid` component (chips, colors, layout) |
 | `SignalR.Server/Program.cs` | Server entry configuring services, middleware, and SignalR hubs (maps `/stockHub`) |
-| `SignalR.Server/Controllers/StockController.cs` | API endpoints for initial grid datasource and CRUD operations |
+| `SignalR.Server/Controllers/StockController.cs` | API endpoints for initial grid datasource |
 | `SignalR.Server/Hubs/StockHub.cs` | Lightweight SignalR hub; injects `StockDataService`, manages group membership (`StockTraders`) and sends initial `InitializeStocks` |
 | `SignalR.Server/Models/Stock.cs` | Server-side `Stock` model with raw fields and `*Display` formatted fields |
 | `SignalR.Server/Services/StockUpdateService.cs` | Background service that simulates price updates and broadcasts updates to the `StockTraders` group |
