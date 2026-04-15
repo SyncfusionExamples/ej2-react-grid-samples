@@ -5,85 +5,52 @@ namespace SignalR.Server.Models
 {
     public class Stock
     {
-        /// <summary>
-        /// Gets or sets the unique identifier for the stock.
-        /// </summary>
+        // Gets or sets the unique identifier for the stock.
         public int StockId { get; set; }
 
-        /// <summary>
-        /// Gets or sets the ticker symbol of the stock (e.g., AAPL, MSFT).
-        /// </summary>
+        // Gets or sets the ticker symbol of the stock (e.g., AAPL, MSFT).
         public string Symbol { get; set; } = string.Empty;
 
-        /// <summary>
-        /// Gets or sets the full company name.
-        /// </summary>
+        // Gets or sets the full company name.
         public string Company { get; set; } = string.Empty;
 
-        /// <summary>
-        /// Gets or sets the current price of the stock.
-        /// </summary>
+        // Gets or sets the current price of the stock.
         public decimal CurrentPrice { get; set; }
 
-        /// <summary>
-        /// Gets or sets the previous price before the last update.
-        /// Used to calculate price changes.
-        /// </summary>
+        // Used to calculate price changes.
         public decimal PreviousPrice { get; set; }
 
-        /// <summary>
-        /// Gets or sets the price change in absolute value.
-        /// Calculated as CurrentPrice - PreviousPrice.
-        /// </summary>
+        // Calculated as CurrentPrice - PreviousPrice.
         public decimal Change { get; set; }
 
-        /// <summary>
-        /// Gets or sets the percentage change of the stock price.
-        /// Calculated as (Change / PreviousPrice) * 100.
-        /// </summary>
+        // Calculated as (Change / PreviousPrice) * 100.>
         public decimal ChangePercent { get; set; }
 
-        /// <summary>
-        /// Gets or sets the trading volume (number of shares traded).
-        /// </summary>
+        // Gets or sets the trading volume (number of shares traded).
         public long Volume { get; set; }
 
-        /// <summary>
-        /// Gets or sets the timestamp of the last price update.
-        /// </summary>
+        // Gets or sets the timestamp of the last price update.
         public DateTime LastUpdated { get; set; }
 
-        /// <summary>
-        /// Formatted display value for current price (USD currency)
-        /// </summary>
+        // Formatted display value for current price (USD currency)
         public string CurrentPriceDisplay { get; set; } = string.Empty;
 
-        /// <summary>
-        /// Formatted display value for price change
-        /// </summary>
+        // Formatted display value for price change
         public string ChangeDisplay { get; set; } = string.Empty;
 
-        /// <summary>
-        /// Formatted display value for percentage change
-        /// </summary>
+        // Formatted display value for percentage change
         public string ChangePercentDisplay { get; set; } = string.Empty;
 
-        /// <summary>
-        /// Formatted display value for trading volume
-        /// </summary>
+        // Formatted display value for trading volume
         public string VolumeDisplay { get; set; } = string.Empty;
 
-        /// <summary>
-        /// Static collection of stocks
-        /// </summary>
+        // Static collection of stocks
         public static readonly List<Stock> Stocks = new List<Stock>();
 
         private static readonly Random _random = new Random();
         private static bool _initialized = false;
 
-        /// <summary>
-        /// Static constructor to initialize stocks
-        /// </summary>
+        // Static constructor to initialize stocks
         static Stock()
         {
             InitializeStocks();
@@ -472,9 +439,7 @@ namespace SignalR.Server.Models
             _initialized = true;
         }
 
-        /// <summary>
-        /// Get all stocks from the static collection
-        /// </summary>
+        // Get all stocks from the static collection
         public static List<Stock> GetAllStocks()
         {
             if (!_initialized)
@@ -496,9 +461,7 @@ namespace SignalR.Server.Models
             VolumeDisplay = FormatVolume(Volume);
         }
 
-        /// <summary>
-        /// Format decimal as USD currency with directional arrow
-        /// </summary>
+        // Format decimal as USD currency with directional arrow
         private static string FormatCurrency(decimal amount)
         {
             if (amount < 0)
@@ -512,17 +475,13 @@ namespace SignalR.Server.Models
             return amount.ToString("C2");
         }
 
-        /// <summary>
-        /// Format current price as USD currency without directional arrow
-        /// </summary>
+        // Format current price as USD currency without directional arrow
         private static string FormatPrice(decimal amount)
         {
             return amount.ToString("C2");
         }
 
-        /// <summary>
-        /// Format decimal as percentage with + or - sign and directional arrow
-        /// </summary>
+        // Format decimal as percentage with + or - sign and directional arrow
         private static string FormatPercent(decimal value)
         {
             if (value < 0)
@@ -536,9 +495,7 @@ namespace SignalR.Server.Models
             return $"• {value:F2}%"; // Neutral indicator
         }
 
-        /// <summary>
-        /// Format long number as abbreviated volume (1.2M, 500K, etc.)
-        /// </summary>
+        // Format long number as abbreviated volume (1.2M, 500K, etc.)
         private static string FormatVolume(long volume)
         {
             if (volume >= 1000000)
