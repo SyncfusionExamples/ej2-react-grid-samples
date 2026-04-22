@@ -1,4 +1,4 @@
-# ej2-react-grid-samples
+# Syncfusion EJ2 React Grid – Data Integration Samples
 
 ## Repository Description
 
