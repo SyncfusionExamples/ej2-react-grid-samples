@@ -14,7 +14,7 @@ namespace SignalR.Server.Controllers
     {
         /// <summary>
         /// Fetch stock data with support for Syncfusion DataManager operations
-        /// Supports: Search, Sorting, Filtering, Paging
+        /// Supports: Search, Sorting, Filtering
         /// </summary>
         [HttpPost("UrlDatasource")]
         public IActionResult UrlDatasource([FromBody] DataManagerRequest dm)
@@ -166,22 +166,6 @@ namespace SignalR.Server.Controllers
                 return BadRequest(new { error = ex.Message });
             }
         }
-    }
-
-    /// <summary>
-    /// CRUD Model for handling Syncfusion DataManager CRUD operations
-    /// </summary>
-    public class CRUDModel<T> where T : class
-    {
-        public string? action { get; set; }
-        public string? table { get; set; }
-        public string? keyColumn { get; set; }
-        public object? key { get; set; }
-        public T? value { get; set; }
-        public List<T>? added { get; set; }
-        public List<T>? changed { get; set; }
-        public List<T>? deleted { get; set; }
-        public IDictionary<string, object>? @params { get; set; }
     }
 
     /// <summary>
