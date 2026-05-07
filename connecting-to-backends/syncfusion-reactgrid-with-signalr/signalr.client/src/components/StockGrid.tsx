@@ -10,9 +10,40 @@ import {
   Filter,
   Search,
   Toolbar,
+  GridComponent as GridComponentType,
+  type QueryCellInfoEventArgs,
 } from "@syncfusion/ej2-react-grids";
 import "../styles/StockGrid.css";
 import { DataManager, UrlAdaptor } from "@syncfusion/ej2-data";
+
+// Stock data interface
+interface Stock {
+  stockId: number;
+  symbol: string;
+  company: string;
+  currentPrice: number;
+  change: number;
+  changePercent: number;
+  volume: number;
+  changeDisplay: string;
+  changePercentDisplay: string;
+  volumeDisplay: string;
+  lastUpdated: string;
+  StockId?: number;
+  Symbol?: string;
+  Company?: string;
+  CurrentPrice?: number;
+  ChangeDisplay?: string;
+  ChangePercentDisplay?: string;
+  VolumeDisplay?: string;
+  LastUpdated?: string;
+}
+
+// Template props interface
+interface TemplateProps {
+  Symbol?: string;
+  Company?: string;
+}
 
 const StockGrid: React.FC = () => {
   const gridRef = useRef<GridComponent>(null);
@@ -44,7 +75,7 @@ const StockGrid: React.FC = () => {
     connectionRef.current = conn;
 
     // Handler for initial stock data on connection
-    conn.on("InitializeStocks", (stocks: any[]) => {      
+    conn.on("InitializeStocks", (stocks: Stock[]) => {      
       if (!stocks || stocks.length === 0) {
         return;
       }
@@ -53,7 +84,7 @@ const StockGrid: React.FC = () => {
         return;
       }
 
-      const grid = gridRef.current as any;
+      const grid = gridRef.current as GridComponentType;
       
       // Update each stock's cells using formatted display values from server
       stocks.forEach((stock) => {
@@ -70,7 +101,7 @@ const StockGrid: React.FC = () => {
     });
 
     // Handler for real-time stock updates
-    conn.on("ReceiveStockUpdate", (updatedStocks: any[]) => {      
+    conn.on("ReceiveStockUpdate", (updatedStocks: Stock[]) => {      
       if (!updatedStocks || updatedStocks.length === 0) {
         return;
       }
@@ -79,7 +110,7 @@ const StockGrid: React.FC = () => {
         return;
       }
 
-      const grid = gridRef.current as any;
+      const grid = gridRef.current as GridComponentType;
       
       // Update each stock's cells with real-time data
       updatedStocks.forEach((stock) => {
@@ -172,13 +203,13 @@ const StockGrid: React.FC = () => {
   const toolbar: string[] = ["Search"];
 
   // Column templates for custom styling
-  const symbolTemplate = (props: any) => (
+  const symbolTemplate = (props: TemplateProps) => (
     <div className="symbol-cell">
       <div className="symbol-text">{props?.Symbol}</div>
     </div>
   );
 
-  const companyTemplate = (props: any) => (
+  const companyTemplate = (props: TemplateProps) => (
     <div className="company-cell">
       <div className="company-name">{props?.Company}</div>
     </div>
@@ -198,7 +229,7 @@ const StockGrid: React.FC = () => {
   };
 
   // queryCellInfo handler - applies CSS classes for styling based on column type and display values
-  const queryCellInfo = (args: any) => {
+  const queryCellInfo = (args: QueryCellInfoEventArgs) => {
     try {
       // Remove all possible styling classes first
       args.cell?.classList.remove('e-poscell', 'e-negcell', 'e-volumecell', 'e-price');
@@ -266,7 +297,7 @@ const StockGrid: React.FC = () => {
       <GridComponent
         ref={gridRef}
         dataSource={stock}
-        height="500"
+        height="450"
         cssClass="stock-grid"
         toolbar={toolbar}
         queryCellInfo={queryCellInfo}
