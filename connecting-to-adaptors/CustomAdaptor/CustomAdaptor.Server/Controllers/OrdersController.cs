@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.OData.Query;
-using ODataV4Adaptor.Server.Models;
+using CustomAdaptor.Server.Models;
 
-namespace ODataV4Adaptor.Server.Controllers
+namespace CustomAdaptor.Server.Controllers
 {
     [Route("[controller]")]
     [ApiController]

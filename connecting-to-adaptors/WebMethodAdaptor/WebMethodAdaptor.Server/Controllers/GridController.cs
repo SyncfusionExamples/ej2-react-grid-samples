@@ -1,8 +1,8 @@
 using Microsoft.AspNetCore.Mvc;
 using Syncfusion.EJ2.Base;
-using WebMethodAdaptorDemo.Server.Models;
+using WebMethodAdaptor.Server.Models;
 
-namespace WebMethodAdaptorDemo.Controllers
+namespace WebMethodAdaptor.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

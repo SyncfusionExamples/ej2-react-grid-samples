@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.ComponentModel.DataAnnotations;
 
-namespace RemoteSaveAdaptorDemo.Models
+namespace RemoteSaveAdaptor.Models
 {
     public class OrdersDetails
     {

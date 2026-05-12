@@ -19,7 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\urladaptordemo.client\urladaptordemo.client.esproj">
+    <ProjectReference Include="..\urladaptor.client\urladaptor.client.esproj">
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
   </ItemGroup>

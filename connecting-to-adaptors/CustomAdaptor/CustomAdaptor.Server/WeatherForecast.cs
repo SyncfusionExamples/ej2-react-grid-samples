@@ -1,4 +1,4 @@
-namespace ODataV4Adaptor.Server
+namespace CustomAdaptor.Server
 {
     public class WeatherForecast
     {

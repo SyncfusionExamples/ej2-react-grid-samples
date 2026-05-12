@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using RemoteSaveAdaptorDemo.Models;
+using RemoteSaveAdaptor.Models;
 
-namespace RemoteSaveAdaptorDemo.Controllers
+namespace RemoteSaveAdaptor.Controllers
 {
     
     [ApiController]

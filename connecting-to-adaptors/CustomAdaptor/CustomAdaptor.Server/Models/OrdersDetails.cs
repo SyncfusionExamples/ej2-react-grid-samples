@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace ODataV4Adaptor.Server.Models
+namespace CustomAdaptor.Server.Models
 {
     public class OrdersDetails
     {
