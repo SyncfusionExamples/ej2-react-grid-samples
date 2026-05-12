@@ -12,7 +12,7 @@
     "@syncfusion/ej2-data": "*",
     "@syncfusion/ej2-react-buttons": "*",
     "@syncfusion/ej2-react-grids": "*",
-    "next": "16.2.5",
+    "next": "16.2.6",
     "react": "19.2.3",
     "react-dom": "19.2.3"
   },
