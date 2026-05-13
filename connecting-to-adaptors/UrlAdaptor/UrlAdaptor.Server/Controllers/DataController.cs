@@ -2,9 +2,9 @@
 using Microsoft.AspNetCore.Mvc;
 using Syncfusion.EJ2.Base;
 using System.Collections;
-using UrlAdaptorDemo.Server.Models;
+using UrlAdaptor.Server.Models;
 
-namespace UrlAdaptorDemo.Server.Controllers
+namespace UrlAdaptor.Server.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

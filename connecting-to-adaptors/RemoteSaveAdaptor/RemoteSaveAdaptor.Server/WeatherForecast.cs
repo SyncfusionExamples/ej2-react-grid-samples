@@ -1,4 +1,4 @@
-namespace RemoteSaveAdaptorDemo.Server
+namespace RemoteSaveAdaptor.Server
 {
     public class WeatherForecast
     {

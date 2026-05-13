@@ -1,4 +1,4 @@
-namespace UrlAdaptorDemo.Server
+namespace UrlAdaptor.Server
 {
     public class WeatherForecast
     {

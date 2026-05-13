@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace UrlAdaptorDemo.Server.Models
+namespace UrlAdaptor.Server.Models
 {
     public class OrdersDetails
     {

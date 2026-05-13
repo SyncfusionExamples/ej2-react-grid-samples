@@ -1,4 +1,4 @@
-namespace WebMethodAdaptorDemo.Server
+namespace WebMethodAdaptor.Server
 {
     public class WeatherForecast
     {

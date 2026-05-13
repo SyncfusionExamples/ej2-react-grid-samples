@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace WebMethodAdaptorDemo.Server.Models
+namespace WebMethodAdaptor.Server.Models
 {
     public class OrdersDetails
     {

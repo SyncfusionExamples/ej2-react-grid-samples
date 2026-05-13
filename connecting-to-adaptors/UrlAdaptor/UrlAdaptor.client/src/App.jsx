@@ -18,10 +18,10 @@ function App() {
 
     // Configure DataManager with UrlAdaptor.
     const data = new DataManager({
-        url: 'https://localhost:7007/api/data',  // Replace 7007 with the backend port.
-        insertUrl: 'https://localhost:7007/api/data/Insert',
-        updateUrl: 'https://localhost:7007/api/data/Update',
-        removeUrl: 'https://localhost:7007/api/data/Remove',
+        url: 'http://localhost:7007/api/data',  // Replace 7007 with the backend port.
+        insertUrl: 'http://localhost:7007/api/data/Insert',
+        updateUrl: 'http://localhost:7007/api/data/Update',
+        removeUrl: 'http://localhost:7007/api/data/Remove',
         adaptor: new UrlAdaptor()                // Specify UrlAdaptor for custom REST API.
     });
 
