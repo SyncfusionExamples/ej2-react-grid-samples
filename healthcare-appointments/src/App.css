@@ -1,0 +1,65 @@
+@import "../node_modules/@syncfusion/ej2-tailwind3-theme/styles/grid/index.css";
+
+#CellEdit .badge {
+padding: 4px 10px;
+border-radius: 12px;
+color: #fff;
+font-size: 12px;
+font-weight: 500;
+}
+
+#CellEdit .booked {
+background-color: #28a745;
+}
+
+#CellEdit .canceled {
+background-color: #dc3545;
+}
+
+#CellEdit .completed {
+background-color: #007bff;
+}
+
+#CellEdit .waiting {
+background-color: #fd7e14;
+}
+
+
+#CellEdit .type {
+display: inline-flex;
+align-items: center;
+gap: 5px;
+font-size: 13px;
+font-weight: 500;
+}
+
+#CellEdit .emergency {
+color: #dc3545;
+}
+
+#CellEdit .lab {
+color: #6f42c1;
+}
+
+#CellEdit .follow {
+color: #fd7e14;
+}
+
+#CellEdit .routine {
+color: #17a2b8;
+}
+
+#CellEdit .consult {
+color: #28a745;
+}
+
+
+#CellEdit .doctor-cell {
+display: flex;
+align-items: center;
+gap: 8px;
+}
+
+#CellEdit .doctor-img {
+border-radius: 50%;
+}

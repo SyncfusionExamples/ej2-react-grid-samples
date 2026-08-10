@@ -1,0 +1,118 @@
+@import "../node_modules/@syncfusion/ej2-tailwind3-theme/styles/grid/index.css";
+@import '@syncfusion/ej2-dropdowns/styles/tailwind3.css';
+
+      #menu-filter-sample .status-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 6px 12px;
+        border-radius: 20px;
+        font-weight: 500;
+        font-size: 0.82rem;
+        text-align: center;
+        justify-content: center;
+        margin: 0 auto;
+        height: 10px;
+      }
+
+      #menu-filter-sample .status-icon {
+        font-size: 0.9rem;
+      }
+
+      #menu-filter-sample .status-text {
+        display: inline;
+      }
+
+      #menu-filter-sample .badge-pending {
+        background-color: #fff7cd;
+        color: #C2410C;
+        border: 1.5px solid #fbbf24;
+      }
+
+      #menu-filter-sample .badge-paid {
+        background-color: #e6f4ea;
+        color: #137333;
+        border: 1.5px solid #d0e8d0;
+      }
+
+      #menu-filter-sample .badge-partial {
+        background-color: #faf5ff;
+        color: #7e22ce;
+        border: 1.5px solid #d8b4fe;
+      }
+
+      #menu-filter-sample .badge-default {
+        background-color: #111827;
+        color: #f9fafb;
+        border: 1.5px solid #374151;
+      }
+
+      #menu-filter-sample .badge-pill {
+        border-radius: 20px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+      }
+
+      .menu-dialog-template #specialRequest{
+          resize: vertical;
+      }
+      :-ms-fullscreen, .e-grid .e-dialog
+      {
+          max-width: 552px;
+      }
+      .e-dialog.e-edit-dialog {
+          max-height: 589px !important;
+      }
+      .menu-dialog-template {
+        padding: 8px 12px;
+      }
+
+      .menu-dialog-template .dialog-two-col {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px 24px;
+        align-items: start;
+      }
+
+      @media (max-width: 720px) {
+        .menu-dialog-template .dialog-two-col {
+          grid-template-columns: 1fr;
+          gap: 16px;
+        }
+      }
+
+      .menu-dialog-template .dialog-field {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        width: 100%;
+        min-width: 0;
+      }
+
+      .e-dropdownlist .e-input,
+      .e-listbox .e-list-wrapper,
+      .e-filter-popup .e-dropdownlist,
+      .e-filter-popup .e-dropdownlist .e-input,
+      .e-filter-popup .e-dropdownlist .e-list-wrapper,
+      .e-filter-popup .e-popup-wrapper {
+        min-width: 0 !important;
+        width: 100% !important;
+      }
+
+      .menu-dialog-template .dialog-field label {
+        font-size: 12px;
+        font-weight: 500;
+        font-style: normal;
+        color: #111827;
+        letter-spacing: normal;
+      }
+
+      .menu-dialog-template .dialog-field-full {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        width: 100%;
+        grid-column: 1 / -1;
+      }
