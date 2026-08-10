@@ -1,0 +1,150 @@
+.column-menu-sample {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  height: 100%;
+}
+
+.column-menu-sample .iconWrapper {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+}
+
+.column-menu-sample .icon12px {
+  flex-shrink: 0;
+}
+
+.column-menu-sample .textEllipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.column-menu-sample .badge,
+.column-menu-sample .statusBadgeBg,
+.column-menu-sample .priorityBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 8px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.column-menu-sample .departmentBadge {
+  background: #e0f2fe;
+  color: #0369a1;
+}
+
+.column-menu-sample .statusBadgeBg {
+  background: #ecfdf5;
+  color: #047857;
+}
+
+.column-menu-sample .statusPlanning {
+  background: #f3f4f6;
+  color: #4b5563;
+}
+
+.column-menu-sample .statusInProgress {
+  background: #fef3c7;
+  color: #b45309;
+}
+
+.column-menu-sample .statusOnHold {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+.column-menu-sample .statusCompleted {
+  background: #dcfce7;
+  color: #15803d;
+}
+
+.column-menu-sample .statusCancelled {
+  background: #f3f4f6;
+  color: #6b7280;
+}
+
+.column-menu-sample .priorityBadge {
+  background: #fff7ed;
+  color: #c2410c;
+}
+
+.column-menu-sample .priorityLow {
+  background: #e0f2fe;
+  color: #0369a1;
+}
+
+.column-menu-sample .priorityMedium {
+  background: #fef3c7;
+  color: #b45309;
+}
+
+.column-menu-sample .priorityHigh {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+.column-menu-sample .priorityCritical {
+  background: #ede9fe;
+  color: #6d28d9;
+}
+
+.column-menu-sample .progressContainer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 140px;
+}
+
+.column-menu-sample .progressBar {
+  flex: 1;
+  height: 7px;
+  border-radius: 999px;
+  background: #e5e7eb;
+  overflow: hidden;
+}
+
+.column-menu-sample .progressFill {
+  height: 100%;
+  border-radius: inherit;
+}
+
+.column-menu-sample .progressText {
+  font-size: 12px;
+  font-weight: 600;
+  color: #334155;
+}
+
+.column-menu-sample .budgetText {
+  font-weight: 600;
+  color: #0f766e;
+}
+
+.column-menu-sample .teamMembersContainer,
+.column-menu-sample .resourceContainer {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #1d4ed8;
+}
+
+.column-menu-sample .teamMembersText,
+.column-menu-sample .resourceText {
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.column-menu-sample .e-grid .e-headercell {
+  background: #f8fafc;
+  color: #0f172a;
+}
+
+.column-menu-sample .e-grid .e-rowcell {
+  font-size: 13px;
+}

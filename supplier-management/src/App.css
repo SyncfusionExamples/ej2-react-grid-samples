@@ -1,0 +1,5 @@
+@import "../node_modules/@syncfusion/ej2-tailwind3-theme/styles/grid/index.css";
+
+#cell-box-selection {
+    padding: 16px;
+}
