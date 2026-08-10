@@ -1,0 +1,1606 @@
+@import "../node_modules/@syncfusion/ej2-tailwind3-theme/styles/grid/index.css";
+
+#tabContent .e-content .e-item {
+  font-size: 12px;
+  margin: 10px;
+}
+
+/* ============================================================================
+COLUMN TEMPLATES - Product Cell
+============================================================================ */
+
+.product-cell {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.9rem;
+  padding: 0.75rem 0;
+  height: 100%;
+}
+
+.product-image {
+  width: 52px;
+  height: 52px;
+  border-radius: 8px;
+  object-fit: cover;
+  border: 1px solid rgba(229, 231, 235, 0.9);
+  background: #f8fafc;
+  flex-shrink: 0;
+  transition: transform 0.25s ease;
+}
+
+.product-image:hover {
+  transform: scale(1.04);
+}
+
+.product-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  min-width: 0;
+}
+
+.product-name {
+  font-weight: 600;
+  color: #111827;
+  font-size: 1rem;
+  line-height: 1.2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.product-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0;
+  color: #6b7280;
+  line-height: 1.3;
+}
+
+.product-description,
+.product-sku {
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.product-description {
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: #6b7280;
+}
+
+.product-sku {
+  font-size: 0.75rem;
+  font-weight: 400;
+  color: #6b7280;
+}
+
+.category-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 24px;
+  padding: 0 12px;
+  border-radius: 6px;
+  border: 1px solid;
+  font-size: 14px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.category-laptop {
+  background: #f3e8ff;
+  border: #c27aff;
+  color: #8200db;
+}
+
+.category-smartphone {
+  background: #d0fae5;
+  border: #00d492;
+  color: #007a55;
+}
+
+.category-headphone {
+  background: #ffedd4;
+  border: #ff8904;
+  color: #ca3500;
+}
+
+.category-wearables {
+  background: #cefafe;
+  border: #00d3f2;
+  color: #007595;
+}
+
+.category-tablet {
+  background: #fae8ff;
+  border: #ed6bff;
+  color: #a800b7;
+}
+
+.category-monitor {
+  background: #ecfcca;
+  border: #9ae600;
+  color: #497d00;
+}
+
+.category-Accessories {
+  background: #ffe4e6;
+  border: #ff637e;
+  color: #c6005c;
+}
+
+.category-gaming {
+  background: #e6e4ff;
+  border: #50a2ff;
+  color: #1447e6;
+}
+
+.category-icon {
+  display: inline-flex;
+  width: 1rem;
+  height: 1rem;
+  margin-right: 0.5rem;
+  color: inherit;
+}
+
+.stock-cell {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  justify-content: center;
+}
+
+.stock-ring-frame {
+  position: relative;
+  width: 70px;
+  height: 70px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.stock-ring-frame .e-progressbar {
+  width: 70px;
+  height: 70px;
+}
+
+.stock-ring-value {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #111827;
+}
+
+.stock-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  text-align: left;
+}
+
+.stock-label {
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.stock-in .stock-label {
+  color: #15803d;
+}
+
+.stock-low .stock-label {
+  color: #EA580C;
+}
+
+.stock-out .stock-label {
+  color: #DC2626;
+}
+.sales-value {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: #111827;
+}
+
+.sales-chart-inline {
+  width: 100%;
+  min-width: 120px;
+}
+
+.sales-change {
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.sales-change.positive {
+  color: #16a34a;
+}
+
+.sales-change.negative {
+  color: #dc2626;
+}
+
+/* Status badge styles to match screenshot */
+
+.status-cell {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  align-items: center;
+}
+
+.status-text {
+  line-height: 1;
+}
+
+.status-units {
+  font-size: 0.78rem;
+  color: #6b7280;
+  padding-top: 10px;
+}
+
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 20px;
+  padding: 0 8px;
+  border-radius: 4px;
+  border: 1px solid;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.status-badge-success {
+  background: #f0fdf4;
+  border-color: #bbf7d0;
+  color: #15803d;
+}
+.status-badge-warning {
+
+  background: #fff7ed;
+  border-color: #fed7aa;
+  color: #ea580c;
+}
+
+.status-badge-error {
+  background: #fef2f2;
+  border-color: #fecaca;
+  color: #dc2626;
+}
+
+/* Detail template enhancements */
+.detail-container {
+  padding: 1rem 1.25rem;
+  display: flex;
+  gap: 1rem;
+}
+
+.detail-section {
+  flex: 1;
+}
+
+.detail-section h4 {
+  margin: 0 0 0.5rem 0;
+  font-size: 0.95rem;
+}
+
+.detail-item {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.detail-label {
+  font-weight: 600;
+  color: #374151;
+  width: 110px;
+}
+
+.detail-value {
+  color: #111827;
+}
+
+.rating-cell {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  align-items: center;
+}
+
+.rating-stars {
+  display: flex;
+  gap: 0.1rem;
+  font-size: 0.9rem;
+}
+
+.rating-star {
+  color: #d1d5db;
+}
+
+.rating-star.filled {
+  color: #f59e0b;
+}
+
+.reviews-text {
+  font-size: 0.78rem;
+  padding-top: 10px;
+}
+
+.price-cell {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  align-items: flex-end;
+}
+
+.price-current {
+  font-weight: 700;
+  color: #111827;
+}
+
+.price-old {
+  font-size: 0.8rem;
+  color: #9ca3af;
+  text-decoration: line-through;
+}
+
+/* ============================================================================
+HEADER TEMPLATE - Custom Headers
+============================================================================ */
+
+.custom-header {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* ============================================================================
+STATUS BADGES - Color-coded status
+============================================================================ */
+
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.375rem 0.75rem;
+  border-radius: 12px;
+}
+
+.status-in-stock {
+  background: #e2fff0;
+  color: #065f46;
+  border: 1px solid #e2fff0;
+}
+
+.status-low-stock {
+  background: #fcf4f4;
+  color: #dc2626;
+  border: 1px solid #fcf4f4;
+}
+
+.status-out-of-stock {
+  background: #fee2e2;
+  color: #991b1b;
+  border: 1px solid #fca5a5;
+}
+
+/** sales cell template */
+
+.sales-cell {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+}
+
+.sales-number {
+  font-size: 20px;
+  font-weight: 700;
+  color: #1e293b;
+}
+
+.sales-growth {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.sales-growth.positive {
+  color: #22c55e;
+}
+
+.sales-growth.negative {
+  color: #ef4444;
+}
+
+.sales-cell .e-chart {
+  margin-top: -2px;
+}
+
+/* ============================================================================
+DETAIL TEMPLATE - Product Detail Enhancements
+============================================================================ */
+.detail-page {
+  padding: 20px;
+  background: #f8fafc;
+  max-width: 1180px;
+  margin: 0 auto;
+  border-radius: 18px;
+}
+
+.detail-top {
+  grid-template-columns: 240px minmax(0, 1fr);
+  gap: 20px;
+  align-items: start;
+}
+
+.product-gallery {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.main-product-image {
+  width: 100%;
+  min-height: 220px;
+  aspect-ratio: 4 / 3;
+  object-fit: contain;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  background: #fff;
+}
+
+.product-detail-wrapper {
+  padding: 10px;
+  background: #fafbff;
+  border-radius: 18px;
+}
+
+.detail-grid {
+  display: flex;
+  gap: 14px;
+  width: 100%;
+}
+
+.detail-card {
+  flex: 1 1 0;
+  min-width: 0;
+  background: #ffffff;
+  border: 1px solid #e6eaf2;
+  border-radius: 14px;
+  padding: 18px;
+  min-height: auto;
+}
+
+.card-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #233876;
+  margin-bottom: 18px;
+}
+
+.product-description {
+  color: #566580;
+  font-size: 13px;
+  line-height: 2;
+  width: 100%;
+}
+
+.sub-title {
+  color: #233876;
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.highlight-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.highlight-list li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+  font-size: 13px;
+  color: #566580;
+  font-weight: 500;
+}
+
+.bullet {
+  width: 10px;
+  height: 10px;
+  background: #a78bfa;
+  border-radius: 50%;
+  box-shadow: 0 0 0 3px #ede9fe;
+  flex-shrink: 0;
+}
+
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 10px 0;
+  border-bottom: 1px solid #edf0f7;
+}
+
+.info-row:last-child {
+  border-bottom: none;
+}
+
+.info-row span {
+  flex: 0 0 38%;
+  color: #667085;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.info-row strong {
+  flex: 1 1 58%;
+  text-align: right;
+  color: #111827;
+  font-weight: 700;
+  word-break: break-word;
+}
+
+.success {
+  color: #22c55e !important;
+}
+
+.restock {
+  color: #7c3aed !important;
+}
+
+@media screen and (max-width: 1000px) {
+  .detail-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.current-price {
+  color: #1e3a8a;
+  font-size: 18px;
+}
+
+.original-price {
+  color: #94a3b8;
+  text-decoration: line-through;
+}
+
+.discount-price {
+  color: #ef4444;
+}
+
+.profit-price {
+  color: #22c55e;
+}
+
+.price-chart {
+  margin-top: 15px;
+}
+
+/** rating stars */
+.custom-rating.e-rating-container .e-rating-item-container,
+.e-bigger
+  .custom-rating.e-rating-container
+  .e-rating-item-container
+  .e-rating-icon,
+.e-bigger.custom-rating.e-rating-container
+  .e-rating-item-container
+  .e-rating-icon {
+  font-size: 16px;
+}
+
+.custom-rating.e-rating-container .e-rating-item-container .e-rating-icon {
+  -webkit-text-fill-color: lightgrey;
+  -webkit-text-stroke: 1px lightgrey;
+}
+
+.custom-rating.e-rating-container
+  .e-rating-item-container.e-rating-selected
+  .e-rating-icon {
+  background: linear-gradient(
+    to right,
+    #ffa600 var(--rating-value),
+    #ffa600 var(--rating-value)
+  );
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke: 1px #ffa600;
+}
+
+/* Employee template grid */
+.employee-template-grid .e-rowcell,
+.employee-template-grid .e-detailrowcollapse,
+.employee-template-grid .e-detailrowexpand {
+  background-color: inherit;
+}
+
+.employee-template-grid .e-row:hover .e-rowcell,
+.employee-template-grid .e-row:hover .e-detailrowcollapse,
+.employee-template-grid .e-row:hover .e-detailrowexpand,
+.employee-template-grid .e-row.e-selectionbackground .e-rowcell,
+.employee-template-grid .e-row.e-selectionbackground .e-detailrowcollapse,
+.employee-template-grid .e-row.e-selectionbackground .e-detailrowexpand {
+  background-color: inherit;
+}
+
+.employee-template-grid .e-detailrow {
+  background: #fff;
+}
+
+.employee-template-grid .e-detailrow .e-detailcell {
+  /* padding: 0 !important; */
+}
+
+.employee-template-grid .e-detailrowcollapse,
+.employee-template-grid .e-detailrowexpand {
+  box-shadow: none;
+}
+
+
+/* ===========================
+ Dialog
+=========================== */
+
+.product-dialog-template {
+  padding: 6px 0;
+}
+
+/* ===========================
+Form Layout
+=========================== */
+
+.product-dialog-template .form-row {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 18px;
+}
+
+.product-dialog-template .form-group {
+  flex: 1;
+  margin-bottom: 0;
+}
+
+.product-dialog-template .col-md-6 {
+  width: 50%;
+}
+
+/* ===========================
+Syncfusion Inputs
+=========================== */
+
+.product-dialog-template .e-control-wrapper,
+.product-dialog-template .e-ddl,
+.product-dialog-template .e-numeric,
+.product-dialog-template .e-input-group {
+  width: 100%;
+}
+
+.product-dialog-template .e-input-group,
+.product-dialog-template .e-ddl,
+.product-dialog-template .e-numeric {
+  border-radius: 8px;
+}
+
+.product-dialog-template .e-float-input input {
+  height: 40px;
+}
+
+.col-md-12 {
+  flex: 0 0 100%;
+}
+
+/* ===========================
+Responsive
+=========================== */
+
+@media (max-width: 768px) {
+  .product-dialog-template .form-row {
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+
+  .product-dialog-template .col-md-6 {
+    width: 100%;
+  }
+}
+
+/*************ROW Template*************/
+
+/* Container */
+.employee-grid-container {
+  padding: 10px;
+  background: #f4f6f9;
+}
+
+/* Card shell */
+.employee-card {
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  padding: 24px 28px;
+  margin: 8px 4px;
+  border: 1px solid #e8ecf1;
+  transition: box-shadow 0.2s ease;
+}
+
+.employee-card:hover {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Header */
+.employee-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 24px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.employee-profile {
+  display: flex;
+  gap: 18px;
+  align-items: center;
+}
+
+.employee-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #eef2f7;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.employee-name {
+  font-size: 1.4rem; /* was 1.25rem */
+  font-weight: 600;
+  color: #1a1f36;
+  margin-bottom: 4px;
+  line-height: 1.3;
+}
+
+.employee-title {
+  font-size: 1rem; /* was 0.875rem */
+  color: #6b7280;
+  margin-bottom: 10px;
+}
+
+.employee-contact {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  font-size: 0.9rem; /* was 0.8125rem */
+  color: #4b5563;
+}
+
+.contact-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.contact-icon {
+  font-size: 0.85rem;
+  opacity: 0.75;
+}
+
+/* Meta badges */
+.employee-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: flex-end;
+  max-width: 420px;
+}
+
+.meta-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 20px;
+  padding: 6px 14px;
+  font-size: 0.85rem; /* was 0.75rem */
+  color: #475569;
+  white-space: nowrap;
+}
+
+.meta-item.status-active {
+  background: #ecfdf5;
+  border-color: #a7f3d0;
+  color: #065f46;
+}
+
+.status-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #10b981;
+  display: inline-block;
+}
+
+/* Rating badge – more compact and professional */
+.meta-item.employee-rating {
+  background: #fefce8;
+  border: 1px solid #fde68a;
+  border-radius: 20px;
+  padding: 4px 10px; /* tighter vertical padding */
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 28px; /* fixed compact height */
+}
+
+/* Single-star rating */
+.meta-item.employee-rating {
+  background: #fefce8;
+  border-color: #fde68a;
+  padding: 4px 10px;
+  height: 26px;
+}
+
+.single-star {
+  color: #f59e0b;
+  font-size: 0.95rem;
+  line-height: 1;
+  margin-right: 3px;
+}
+
+.rating-text {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #92400e;
+  line-height: 1;
+}
+
+/* Unit suffix for Present / Leave */
+.stat-value .unit {
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: #64748b;
+  margin-left: 2px;
+}
+
+.emp-id {
+  background: #f1f5f9;
+  font-weight: 600;
+  color: #334155;
+}
+
+/* KPI row */
+.employee-stats {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 14px;
+  margin-bottom: 24px;
+}
+
+.stat-card {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 16px 12px;
+  text-align: center;
+  transition: background 0.15s ease;
+}
+
+.stat-card:hover {
+  background: #f1f5f9;
+}
+
+.stat-value {
+  font-size: 1.35rem; /* was 1.15rem */
+  font-weight: 700;
+  color: #1e293b;
+  line-height: 1.3;
+  margin-bottom: 6px;
+}
+
+.stat-label {
+  font-size: 0.8rem; /* was 0.7rem */
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #64748b;
+  font-weight: 500;
+}
+
+/* Special handling for long team name */
+.team-card .stat-value.team-name {
+  font-size: 0.95rem; /* slightly larger than before */
+  font-weight: 600;
+  line-height: 1.3;
+  word-break: break-word;
+}
+
+/* Information grid */
+.employee-info-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.info-card {
+  background: #ffffff;
+  border: 1px solid #e8ecf1;
+  border-radius: 8px;
+  padding: 12px 14px;
+}
+
+.info-label {
+  font-size: 0.78rem; /* was 0.68rem */
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: #94a3b8;
+  margin-bottom: 5px;
+  font-weight: 500;
+}
+
+.info-value {
+  font-size: 0.95rem; /* was 0.875rem */
+  font-weight: 600;
+  color: #1e293b;
+}
+
+/* Attendance progress */
+.attendance-progress {
+  background: #f8fafc;
+  border-radius: 8px;
+  padding: 14px 18px;
+  border: 1px solid #e2e8f0;
+}
+
+.attendance-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  font-size: 0.9rem; /* was 0.8125rem */
+  color: #475569;
+  font-weight: 500;
+}
+
+.attendance-percent {
+  font-weight: 700;
+  color: #0f766e;
+  font-size: 0.95rem;
+}
+
+.progress-bar {
+  height: 10px; /* slightly taller for better visibility */
+  background: #e2e8f0;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #14b8a6, #0d9488);
+  border-radius: 999px;
+  transition: width 0.4s ease;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1100px) {
+  .employee-stats,
+  .employee-info-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 700px) {
+  .employee-stats,
+  .employee-info-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .employee-header {
+    flex-direction: column;
+  }
+  .employee-meta {
+    justify-content: flex-start;
+    max-width: 100%;
+  }
+}
+
+/* Hide default grid borders for cleaner card look
+.e-grid .e-rowcell {
+border: none !important;
+padding: 0 !important;
+}
+
+.e-grid .e-gridcontent {
+background: transparent;
+} */
+
+/* ============================================================================
+EMPLOYEE TEMPLATE SAMPLE - Column & Edit Template styling
+============================================================================ */
+
+.emp-template-container {
+  padding: 4px 0;
+}
+
+/* ---- Column template: avatar + name + designation ---- */
+.emp-template-cell {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  height: 100%;
+  padding: 6px 0;
+  min-width: 0;
+}
+
+.emp-template-avatar {
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid #e5e7eb;
+  background: #f8fafc;
+  flex-shrink: 0;
+}
+
+.emp-template-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.emp-template-name {
+  font-weight: 600;
+  font-size: 0.92rem;
+  color: #1f2937;
+  line-height: 1.25;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.emp-template-role {
+  font-size: 0.78rem;
+  color: #6b7280;
+  line-height: 1.3;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ---- Status badges ---- */
+.emp-status-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 22px;
+  padding: 0 10px;
+  border-radius: 11px;
+  border: 1px solid transparent;
+  font-size: 0.78rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.emp-status-active {
+  background: #ecfdf5;
+  border-color: #a7f3d0;
+  color: #047857;
+}
+
+.emp-status-on-leave {
+  background: #fff7ed;
+  border-color: #fed7aa;
+  color: #c2410c;
+}
+
+.emp-status-probation {
+  background: #eff6ff;
+  border-color: #bfdbfe;
+  color: #1d4ed8;
+}
+
+.emp-status-remote {
+  background: #f5f3ff;
+  border-color: #ddd6fe;
+  color: #6d28d9;
+}
+
+/* ---- Rating cell ---- */
+.emp-rating-cell {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  justify-content: center;
+}
+
+.emp-rating-value {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #374151;
+}
+
+/* ---- Edit dialog ---- */
+
+
+
+.emp-edit-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 10px 14px;
+  margin-bottom: 16px;
+}
+
+.emp-edit-banner-label {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #64748b;
+  font-weight: 600;
+}
+
+.emp-edit-banner-value {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #0f172a;
+  font-family: 'Segoe UI', Roboto, sans-serif;
+}
+
+
+
+
+/* ============================================================================
+ENHANCED EMPLOYEE TEMPLATE - Header icons, column badges, responsive dialog
+============================================================================ */
+
+.emp-template-container {
+  padding: 4px 0;
+}
+
+/* ---- Header icon ---- */
+.custom-header {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.custom-header .header-icon {
+  font-size: 13px;
+  color: #6b7280;
+}
+
+/* ---- Employee cell (photo, name, employee id) ---- */
+.emp-template-cell {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  height: 100%;
+  padding: 6px 0;
+  min-width: 0;
+}
+
+.emp-template-avatar {
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid #e5e7eb;
+  background: #f8fafc;
+  flex-shrink: 0;
+}
+
+.emp-template-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.emp-template-name {
+  font-weight: 600;
+  font-size: 0.92rem;
+  color: #1f2937;
+  line-height: 1.25;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.emp-template-id {
+  font-size: 0.75rem;
+  color: #6b7280;
+  font-weight: 500;
+  line-height: 1.2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ---- Designation stacked ---- */
+.emp-template-info-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.emp-template-name-sm {
+  font-weight: 600;
+  font-size: 0.88rem;
+  color: #1f2937;
+  line-height: 1.25;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.emp-template-meta {
+  font-size: 0.75rem;
+  color: #6b7280;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ---- Department badges ---- */
+.emp-dept-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 22px;
+  padding: 0 12px;
+  border-radius: 11px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  white-space: nowrap;
+  border: 1px solid transparent;
+}
+
+.emp-dept-engineering {
+  background: #eff6ff;
+  border-color: #bfdbfe;
+  color: #1d4ed8;
+}
+.emp-dept-product {
+  background: #f5f3ff;
+  border-color: #ddd6fe;
+  color: #6d28d9;
+}
+.emp-dept-design {
+  background: #fdf2f8;
+  border-color: #fbcfe8;
+  color: #be185d;
+}
+.emp-dept-analytics {
+  background: #ecfeff;
+  border-color: #a5f3fc;
+  color: #0e7490;
+}
+.emp-dept-marketing {
+  background: #fff7ed;
+  border-color: #fed7aa;
+  color: #c2410c;
+}
+.emp-dept-human-resources {
+  background: #fef2f2;
+  border-color: #fecaca;
+  color: #b91c1c;
+}
+.emp-dept-sales {
+  background: #ecfdf5;
+  border-color: #a7f3d0;
+  color: #047857;
+}
+.emp-dept-finance {
+  background: #fefce8;
+  border-color: #fde68a;
+  color: #92400e;
+}
+.emp-dept-operations {
+  background: #f0fdf4;
+  border-color: #bbf7d0;
+  color: #166534;
+}
+.emp-dept-customer-success {
+  background: #f0f9ff;
+  border-color: #bae6fd;
+  color: #0369a1;
+}
+
+/* ---- Icon cells (email, phone, location) ---- */
+.emp-icon-cell {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+
+.emp-cell-icon {
+  font-size: 14px;
+  color: #6b7280;
+  flex-shrink: 0;
+}
+
+.emp-cell-text {
+ 
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  min-width: 0;
+}
+
+/* ---- Salary badge ---- */
+.emp-salary-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 22px;
+  padding: 0 12px;
+  border-radius: 6px;
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  color: #0f172a;
+  font-size: 0.82rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+/* ---- Status badges ---- */
+.emp-status-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 22px;
+  padding: 0 10px;
+  border-radius: 11px;
+  border: 1px solid transparent;
+  font-size: 0.78rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.emp-status-active {
+  background: #ecfdf5;
+  border-color: #a7f3d0;
+  color: #047857;
+}
+.emp-status-on-leave {
+  background: #fff7ed;
+  border-color: #fed7aa;
+  color: #c2410c;
+}
+.emp-status-probation {
+  background: #eff6ff;
+  border-color: #bfdbfe;
+  color: #1d4ed8;
+}
+.emp-status-remote {
+  background: #f5f3ff;
+  border-color: #ddd6fe;
+  color: #6d28d9;
+}
+
+/* ---- Rating cell ---- */
+.emp-rating-cell {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  justify-content: center;
+}
+
+/* ---- Edit dialog ---- */
+
+
+
+.emp-edit-profile {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 18px;
+  background: linear-gradient(135deg, #f8fafc 0%, #eef2ff 100%);
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  margin-bottom: 14px;
+}
+
+.emp-edit-avatar {
+  width: 72px;
+  height: 72px;
+  min-width: 72px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #ffffff;
+  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.12);
+  background: #f8fafc;
+}
+
+.emp-edit-avatar-placeholder {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  color: #94a3b8;
+}
+
+.emp-edit-profile-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.emp-edit-profile-name {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #0f172a;
+  line-height: 1.3;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.emp-edit-profile-sub {
+  font-size: 0.78rem;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-weight: 600;
+}
+
+.emp-edit-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 10px 14px;
+  margin-bottom: 16px;
+}
+
+.emp-edit-banner-label {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #64748b;
+  font-weight: 600;
+}
+
+.emp-edit-banner-value {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #0f172a;
+  font-family: 'Segoe UI', Roboto, sans-serif;
+}
+/* Product Column Template */
+
+.product-template {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    min-width: 0;
+    padding: 4px 0;
+}
+
+.product-image-wrapper {
+    width: 58px;
+    height: 58px;
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+    background: transparent;
+}
+
+.product-image {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    display: block;
+}
+
+.product-copy {
+    flex: 1;
+    min-width: 0;
+}
+
+.product-name {
+    font-size: 15px;
+    font-weight: 600;
+    color: #111827;
+    line-height: 1.35;
+    margin-bottom: 4px;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.product-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.product-description,
+.product-sku {
+    font-size: 13px;
+    color: #6b7280;
+    line-height: 1.3;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+/* Dialog Image Upload */
+
+.image-upload-field {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.image-label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #374151;
+}
+
+.image-field {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+}
+
+.dialog-product-preview {
+    width: 72px;
+    height: 72px;
+    object-fit: contain;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    background: #fff;
+    flex-shrink: 0;
+    padding: 4px;
+}
+
+.image-field .e-upload {
+    flex: 1;
+    min-width: 0;
+}
+
+.hidden {
+    display: none;
+}
+
+
+
+

@@ -1,0 +1,645 @@
+@import "../node_modules/@syncfusion/ej2-tailwind3-theme/styles/grid/index.css";
+
+body {
+    margin: 0;
+}
+
+#tabContent .e-content .e-item {
+    font-size: 12px;
+    margin: 10px;
+}
+
+#LeadManagementGrid .lead-grid-header {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: 600;
+}
+
+#LeadManagementGrid .lead-customer-cell {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#LeadManagementGrid .lead-customer-image {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1px solid #dfe3e8;
+    background-color: #f8fafc;
+}
+
+#LeadManagementGrid .lead-customer-name {
+    font-weight: 600;
+    color: #1f2937;
+    line-height: 20px;
+}
+
+#LeadManagementGrid .lead-customer-email {
+    font-size: 12px;
+    color: #6b7280;
+    line-height: 20px;
+}
+
+#LeadManagementGrid .iconWrapper {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    line-height: 1.4;
+    font-size: 14px;
+}
+
+#LeadManagementGrid .phone {
+    justify-content: flex-end;
+}
+
+#LeadManagementGrid .textEllipsis {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+#LeadManagementGrid .badge {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.3;
+}
+
+#LeadManagementGrid .departmentBadge {
+    background-color: #dbeafe;
+    color: #0369a1;
+}
+
+#LeadManagementGrid .departmentBadge span {
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+#LeadManagementGrid .statusBadgeBg {
+    padding: 2px 6px;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+}
+
+#LeadManagementGrid .statusBadgeBg span {
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+#LeadManagementGrid .statusActive {
+    background-color: #dcfce7;
+    color: #059669;
+}
+
+#LeadManagementGrid .statusOnLeave {
+    background-color: #fefce8;
+    color: #f59e0b;
+}
+
+#LeadManagementGrid .statusInactive {
+    background-color: #fee2e2;
+    color: #dc2626;
+}
+
+#LeadManagementGrid .action-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+#LeadManagementGrid .action-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 4px 10px;
+    border-radius: 999px;
+    border: 1px solid #d1d5db;
+    background-color: #ffffff;
+    color: #111827;
+    font-size: 12px;
+    font-weight: 600;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+#LeadManagementGrid .action-button:hover {
+    background-color: #f8fafc;
+    border-color: #cbd5e1;
+}
+
+#LeadManagementGrid .linkedin-button {
+    color: #0f172a;
+}
+
+#LeadManagementGrid .mail-button {
+    color: #0f172a;
+}
+
+#LeadManagementGrid .action-button span {
+    line-height: 1;
+}
+
+#LeadManagementGrid .employmentBadge {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.3;
+}
+
+#LeadManagementGrid .employmentFullTime {
+    background-color: #dcfce7;
+    color: #059669;
+}
+
+#LeadManagementGrid .employmentPartTime {
+    background-color: #e0f2fe;
+    color: #0284c7;
+}
+
+#LeadManagementGrid .employmentContract {
+    background-color: #fefce8;
+    color: #f59e0b;
+}
+
+#LeadManagementGrid .employmentIntern {
+    background-color: #fed7aa;
+    color: #7c2d12;
+}
+
+#LeadManagementGrid .employmentDefault {
+    background-color: #f3f4f6;
+    color: #6b7280;
+}
+
+#LeadManagementGrid .salaryText {
+    color: #059669;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+#LeadManagementGrid .ratingContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    font-size: 14px;
+}
+
+#LeadManagementGrid .ratingHigh {
+    color: #059669;
+    font-weight: 600;
+}
+
+#LeadManagementGrid .ratingMedium {
+    color: #f59e0b;
+    font-weight: 600;
+}
+
+#LeadManagementGrid .ratingLow {
+    color: #dc2626;
+    font-weight: 600;
+}
+
+#LeadManagementGrid .icon12px {
+    width: 12px;
+    height: 12px;
+    flex-shrink: 0;
+}
+
+#LeadManagementGrid .lead-status-badge,
+#LeadManagementGrid .lead-interest-badge,
+#LeadManagementGrid .lead-priority-badge,
+#LeadManagementGrid .lead-team-badge,
+#LeadManagementGrid .lead-location-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+#LeadManagementGrid .lead-team-cell {
+    display: block;
+    max-width: 100%;
+    min-width: 0;
+    overflow: hidden;
+}
+
+#LeadManagementGrid .lead-team-badge {
+    display: inline-block;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    vertical-align: middle;
+}
+
+#LeadManagementGrid .lead-status-qualified,
+#LeadManagementGrid .lead-interest-high,
+#LeadManagementGrid .lead-priority-high {
+    background-color: #E8F0FE;
+    color: #1A73E8;
+}
+
+#LeadManagementGrid .lead-status-new,
+#LeadManagementGrid .lead-interest-medium,
+#LeadManagementGrid .lead-priority-medium {
+    background-color: #FFF7ED;
+    color: #C2410C;
+}
+
+#LeadManagementGrid .lead-status-contacted {
+    background-color: #ECFEFF;
+    color: #0E7490;
+}
+
+#LeadManagementGrid .lead-status-lead,
+#LeadManagementGrid .lead-interest-low,
+#LeadManagementGrid .lead-priority-low {
+    background-color: #FCE8E6;
+    color: #D93025;
+}
+
+#LeadManagementGrid .lead-team-development {
+    background-color: #E8F0FE;
+    color: #1A73E8;
+    line-height: 20px;
+}
+
+#LeadManagementGrid .lead-team-sales {
+    background-color: #ECFDF3;
+    color: #15803D;
+    line-height: 20px;
+}
+
+#LeadManagementGrid .lead-team-support {
+    background-color: #FFF7ED;
+    color: #C2410C;
+    line-height: 20px;
+}
+
+#LeadManagementGrid .lead-team-design {
+    background-color: #F5F3FF;
+    color: #7C3AED;
+    line-height: 20px;
+}
+
+#LeadManagementGrid .lead-team-operations {
+    background-color: #ECFEFF;
+    color: #0E7490;
+    line-height: 20px;
+}
+
+#LeadManagementGrid .lead-team-finance {
+    background-color: #FEF2F2;
+    color: #B91C1C;
+    line-height: 20px;
+}
+
+#LeadManagementGrid .lead-location-work-from-home {
+    background-color: #ECFDF3;
+    color: #15803D;
+    line-height: 20px;
+}
+
+#LeadManagementGrid .lead-location-office {
+    background-color: #E8F0FE;
+    color: #1A73E8;
+    line-height: 20px;
+}
+
+#LeadManagementGrid .lead-location-remote {
+    background-color: #F5F3FF;
+    color: #7C3AED;
+    line-height: 20px;
+}
+
+#LeadManagementGrid .lead-revenue {
+    color: #111827;
+    font-weight: 600;
+}
+
+/* Scoped styles for stackedHeaderGrid (to avoid affecting other grids) */
+#stackedHeaderGrid #column-chooser-icon,
+#stackedHeaderGrid #column-chooser-text {
+    position: relative;
+}
+
+#stackedHeaderGrid #column-chooser-icon {
+    top: 3px;
+}
+
+#stackedHeaderGrid #column-chooser-text {
+    left: 5px;
+}
+
+#stackedHeaderGrid .e-rtl #column-chooser-icon {
+    top: 3px;
+    right: 5px;
+}
+
+#stackedHeaderGrid .e-rtl #column-chooser-text {
+    left: 0;
+}
+
+#stackedHeaderGrid .no-record-text {
+    padding: 5px;
+}
+
+#stackedHeaderGrid .custom-rating.e-rating-container .e-rating-item-container,
+#stackedHeaderGrid .e-bigger .custom-rating.e-rating-container .e-rating-item-container .e-rating-icon,
+#stackedHeaderGrid .e-bigger.custom-rating.e-rating-container .e-rating-item-container .e-rating-icon {
+    font-size: 11px;
+}
+
+#stackedHeaderGrid .custom-rating.e-rating-container .e-rating-item-container .e-rating-icon {
+    -webkit-text-fill-color: lightgrey;
+    -webkit-text-stroke: 1px lightgrey;
+}
+
+#stackedHeaderGrid .custom-rating.e-rating-container .e-rating-item-container.e-rating-selected .e-rating-icon {
+    background: linear-gradient(to right, #ffa600 var(--rating-value), #ffa600 var(--rating-value));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke: 1px #ffa600;
+}
+
+#stackedHeaderGrid .e-grid .e-image {
+    height: 13px;
+    width: 14px;
+}
+
+#stackedHeaderGrid .no-border {
+  border: none !important;
+}
+
+#stackedHeaderGrid .Mapimage {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+#stackedHeaderGrid .Mapimage .e-image {
+    width: 18px;
+    height: 18px;
+    object-fit: cover;
+}
+#stackedHeaderGrid .locationtext,
+#stackedHeaderGrid .country-name {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+#stackedHeaderGrid .virtual-statustemp {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px 10px;
+    border-radius: 999px;
+    min-height: 24px;
+    font-size: 12px;
+    font-weight: 600;
+    white-space: nowrap;
+    background-color: #ffffff;
+    border: 1.5px solid #d4e7fc;
+}
+
+#stackedHeaderGrid .virtual-statustemp.e-pendingcolor {
+    border-color: #f5d7a4;
+    color: rgb(234, 134, 0);
+}
+
+#stackedHeaderGrid .virtual-statustxt.e-pendingcolor {
+    color: rgb(234, 134, 0);
+}
+
+#stackedHeaderGrid .virtual-statustemp.e-deliveredcolor {
+    border-color: #bde7c4;
+    color: #137333;
+}
+
+#stackedHeaderGrid .virtual-statustxt.e-deliveredcolor {
+    color: #137333;
+}
+
+#stackedHeaderGrid .virtual-statustemp.e-shippedcolor {
+    border-color: #cfe4f8;
+    color: #004b87;
+}
+
+#stackedHeaderGrid .virtual-statustxt.e-shippedcolor {
+    color: #004b87;
+}
+
+#stackedHeaderGrid .virtual-statustemp.e-processingcolor {
+    border-color: #f3e3a7;
+    color: #7d6e00;
+}
+
+#stackedHeaderGrid .virtual-statustxt.e-processingcolor {
+    color: #7d6e00;
+}
+
+#stackedHeaderGrid .virtual-statustemp.e-packedcolor {
+    border-color: #f6d2a5;
+    color: #e65100;
+}
+
+#stackedHeaderGrid .virtual-statustxt.e-packedcolor {
+    color: #e65100;
+}
+
+#stackedHeaderGrid .virtual-statustemp.e-cancelcolor {
+    border-color: #f1c3c3;
+    color: #b3261e;
+}
+
+#stackedHeaderGrid .virtual-statustxt.e-cancelcolor {
+    color: #b3261e;
+}
+
+#stackedHeaderGrid .virtual-statustemp.e-orderedcolor {
+    border-color: #e2c7f7;
+    color: #6d28d9;
+}
+
+#stackedHeaderGrid .virtual-statustxt.e-orderedcolor {
+    color: #6d28d9;
+}
+
+.column-menu-sample {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  height: 100%;
+}
+
+.column-menu-sample .iconWrapper {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+}
+
+.column-menu-sample .icon12px {
+  flex-shrink: 0;
+}
+
+.column-menu-sample .textEllipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.column-menu-sample .badge,
+.column-menu-sample .statusBadgeBg,
+.column-menu-sample .priorityBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 8px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.column-menu-sample .departmentBadge {
+  background: #e0f2fe;
+  color: #0369a1;
+}
+
+.column-menu-sample .statusBadgeBg {
+  background: #ecfdf5;
+  color: #047857;
+}
+
+.column-menu-sample .statusPlanning {
+  background: #f3f4f6;
+  color: #4b5563;
+}
+
+.column-menu-sample .statusInProgress {
+  background: #fef3c7;
+  color: #b45309;
+}
+
+.column-menu-sample .statusOnHold {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+.column-menu-sample .statusCompleted {
+  background: #dcfce7;
+  color: #15803d;
+}
+
+.column-menu-sample .statusCancelled {
+  background: #f3f4f6;
+  color: #6b7280;
+}
+
+.column-menu-sample .priorityBadge {
+  background: #fff7ed;
+  color: #c2410c;
+}
+
+.column-menu-sample .priorityLow {
+  background: #e0f2fe;
+  color: #0369a1;
+}
+
+.column-menu-sample .priorityMedium {
+  background: #fef3c7;
+  color: #b45309;
+}
+
+.column-menu-sample .priorityHigh {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+.column-menu-sample .priorityCritical {
+  background: #ede9fe;
+  color: #6d28d9;
+}
+
+.column-menu-sample .progressContainer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 140px;
+}
+
+.column-menu-sample .progressBar {
+  flex: 1;
+  height: 7px;
+  border-radius: 999px;
+  background: #e5e7eb;
+  overflow: hidden;
+}
+
+.column-menu-sample .progressFill {
+  height: 100%;
+  border-radius: inherit;
+}
+
+.column-menu-sample .progressText {
+  font-size: 12px;
+  font-weight: 600;
+  color: #334155;
+}
+
+.column-menu-sample .budgetText {
+  font-weight: 600;
+  color: #0f766e;
+}
+
+.column-menu-sample .teamMembersContainer,
+.column-menu-sample .resourceContainer {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #1d4ed8;
+}
+
+.column-menu-sample .teamMembersText,
+.column-menu-sample .resourceText {
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.column-menu-sample .e-grid .e-headercell {
+  background: #f8fafc;
+  color: #0f172a;
+}
+
+.column-menu-sample .e-grid .e-rowcell {
+  font-size: 13px;
+}
