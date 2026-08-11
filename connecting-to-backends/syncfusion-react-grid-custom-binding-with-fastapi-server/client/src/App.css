@@ -1,0 +1,117 @@
+/* =========================================================
+   Products Grid Wrapper
+   ========================================================= */
+
+.products-grid-wrap {
+  padding: 14px;
+  border-radius: 14px;
+  background: linear-gradient(180deg, #fbfcff 0%, #f7f9ff 100%);
+  border: 1px solid #e8eefc;
+}
+
+/* =========================================================
+   Title Area
+   ========================================================= */
+
+.pg-title {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 6px 4px 12px;
+}
+
+.pg-title h2 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 700;
+  color: #1b2b4a;
+}
+
+/* =========================================================
+   Grid Surface
+   ========================================================= */
+
+.products-grid-wrap .e-grid {
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid #e6ecff;
+  background: #ffffff;
+}
+
+/* =========================================================
+   Grid Header
+   ========================================================= */
+
+.products-grid-wrap .e-gridheader {
+  background: #f3f6ff;
+  border-bottom: 1px solid #e6ecff;
+}
+
+.products-grid-wrap .e-headercell {
+  background: #f3f6ff;
+}
+
+.products-grid-wrap .e-headertext {
+  color: #2b3a55;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+}
+
+/* =========================================================
+   Grid Rows
+   ========================================================= */
+
+.products-grid-wrap .e-row {
+  background: #ffffff;
+}
+
+.products-grid-wrap .e-row:nth-child(even) {
+  background: #fbfdff;
+}
+
+.products-grid-wrap .e-gridcontent .e-row:hover {
+  background: #f5f9ff !important;
+}
+
+/* =========================================================
+   STATUS Chip
+   ========================================================= */
+
+.pg-chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  max-width: 130px;
+  min-width: 80px;
+
+  padding: 6px 12px;
+  border-radius: 999px;
+
+  font-weight: 700;
+  font-size: 13px;
+  line-height: 1;
+
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+/* Status variants */
+.pg-chip--active {
+  background: #ecfbf3;
+  border: 1px solid #c8f0d9;
+  color: #0b6b37;
+}
+
+.pg-chip--inactive {
+  background: #fff6f0;
+  border: 1px solid #ffe2d2;
+  color: #8a3b00;
+}
+
+.pg-chip--discontinued {
+  background: #f3f4f6;
+  border: 1px solid #e5e7eb;
+  color: #374151;
+}
