@@ -1,0 +1,223 @@
+/* Stock Grid Styles */
+
+.app-container {
+  padding: 20px;
+  margin-top:30px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.stock-header {
+  margin-bottom: 20px;
+}
+
+.stock-header h1 {
+  margin: 0;
+  font-size: 28px;
+  color: #1a1a1a;
+  font-weight: 600;
+}
+
+.stock-header .subtitle {
+  margin: 8px 0 0 0;
+  font-size: 14px;
+  color: #666;
+  font-weight: 400;
+}
+
+/* Stock Grid Customization */
+
+/* Symbol Cell */
+.symbol-pill {
+  display: inline-block;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 0.5px;
+}
+
+/* symbol templates */
+
+.symbol-text {
+  display: inline-block;
+  background-color: #eef6ff; /* pale blue background */
+  color: #2563eb; /* blue text */
+  border: 1px solid #c7e0ff;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 12px;
+  box-shadow: 0 1px 0 rgba(37,99,235,0.05);
+}
+
+.symbol-text:hover {
+  background-color: #e6f0ff;
+  transform: translateY(-1px);
+}
+
+/* Company Name */
+.company-name {
+  font-size: 13px;
+  color: #444;
+  font-weight: 500;
+}
+
+.company-cell {
+  display: flex;
+  align-items: center;
+}
+
+/* Grid cell styles using Syncfusion classes */
+
+/* Positive/Green cells */
+.e-grid .e-rowcell.e-poscell {
+  color: #10b981;
+  font-weight: 700;
+  background-color: #ecfdf5;
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.e-grid tbody .e-row .e-rowcell.e-poscell {
+  color: #10b981;
+  font-weight: 700;
+  background-color: #ecfdf5;
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+/* Negative/Red cells */
+.e-grid .e-rowcell.e-negcell {
+  color: #ef4444;
+  font-weight: 700;
+  background-color: #fef2f2;
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.e-grid tbody .e-row .e-rowcell.e-negcell {
+  color: #ef4444;
+  font-weight: 700;
+  background-color: #fef2f2;
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+/* Price column: blue text, no background */
+.e-grid .e-rowcell.e-price {
+  color: #2563eb;
+  font-weight: 700;
+  background-color: transparent;
+  padding: 8px 12px;
+  font-size: 14px;
+}
+
+.e-grid tbody .e-row .e-rowcell.e-price {
+  color: #2563eb;
+  font-weight: 700;
+  background-color: transparent;
+  padding: 8px 12px;
+  font-size: 14px;
+}
+
+.e-grid .e-rowcell.e-volumecell {
+ 
+  font-weight: 600;
+  font-size: 14px;
+  padding: 8px 12px;
+  border-radius: 6px;
+  text-align: right;
+}
+
+.e-grid tbody .e-row .e-rowcell.e-volumecell {
+  color: #11543e;
+  font-weight: 600;
+  font-size: 14px;
+  padding: 8px 12px;
+  border-radius: 6px;
+  text-align: right;
+}
+
+/* Timestamp Cell */
+.timestamp {
+  color: #999;
+  font-size: 12px;
+}
+
+
+/* Up/Down Symbols */
+.symbol {
+  font-weight: 700;
+  margin-right: 6px;
+  font-size: 14px;
+  display: inline-block;
+}
+
+.value {
+  font-weight: 700;
+  font-size: 14px;
+}
+
+/* Change cell with styling */
+.change-cell {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.change-cell .symbol {
+  margin: 0;
+}
+
+/* Change percent cell */
+.change-percent-cell {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.change-percent-cell .symbol {
+  margin: 0;
+}
+
+
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .app-container {
+    padding: 10px;
+  }
+
+  .stock-header h1 {
+    font-size: 20px;
+  }
+
+  .stock-header .subtitle {
+    font-size: 12px;
+  }
+
+  .symbol-pill {
+    font-size: 11px;
+    padding: 4px 8px;
+  }
+
+  .company-name {
+    font-size: 11px;
+  }
+
+  .price {
+    font-size: 12px;
+  }
+
+  .change-percent {
+    font-size: 12px;
+    padding: 2px 6px;
+  }
+}
