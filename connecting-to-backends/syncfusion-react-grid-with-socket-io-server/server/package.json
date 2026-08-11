@@ -1,0 +1,19 @@
+{
+  "name": "socketio-grid-server-ts",
+  "version": "1.0.0",
+  "description": "TypeScript Node.js Socket.IO server for Syncfusion Grid CRUD with real-time broadcast",
+  "main": "dist/server.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "tsx watch src/server.ts"
+  },
+  "dependencies": {
+    "@syncfusion/ej2-data": "^32.2.3",
+    "socket.io": "^4.7.2"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.0",
+    "tsx": "^4.7.0",
+    "typescript": "^5.3.3"
+  }
+}
