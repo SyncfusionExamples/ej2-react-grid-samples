@@ -30,7 +30,7 @@ namespace Grid_PostgreSQL.Server.Controllers
                     .AsQueryable();
 
             if (request.Where?.Count > 0)
-                purchaseOrdersQuery = dataOperations.PerformFiltering(purchaseOrdersQuery, request.Where, request.Where[0].Operator)
+                purchaseOrdersQuery = dataOperations.PerformFiltering(purchaseOrdersQuery, request.Where, request.Where[0].Condition)
                     .Cast<PurchaseOrder>()
                     .AsQueryable();
 
