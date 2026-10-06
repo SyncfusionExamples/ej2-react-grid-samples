@@ -34,7 +34,7 @@ namespace Grid_MySQL.Server.Controllers
 
                 // Filtering
                 if (dm.Where != null && dm.Where.Count > 0)
-                    query = operation.PerformFiltering(query, dm.Where, dm.Where[0].Operator);
+                    query = operation.PerformFiltering(query, dm.Where, dm.Where[0].Condition);
 
                 // Sorting
                 if (dm.Sorted != null && dm.Sorted.Count > 0)
