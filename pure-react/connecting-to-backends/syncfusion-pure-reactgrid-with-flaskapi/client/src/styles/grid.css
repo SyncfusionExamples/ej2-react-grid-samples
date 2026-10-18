@@ -1,0 +1,276 @@
+/* Syncfusion Inventory Grid – polished UI */
+
+:root {
+  --primary-color: #4f46e5;
+  --primary-color-hover: #4338ca;
+  --primary-color-soft: #eef2ff;
+  --secondary-color: #06b6d4;
+
+  --success-color: #10b981;
+  --success-color-soft: #d1fae5;
+  --warning-color: #f59e0b;
+  --warning-color-soft: #fef3c7;
+  --danger-color: #f65b5b;
+  --danger-color-soft: #fee2e2;
+  --info-color: #3b82f6;
+  --info-color-soft: #dbeafe;
+  --neutral-color: #a5acbc;
+
+  --bg-light: #f9fafb;
+  --bg-card: #ffffff;
+  --bg-page: #f1f5f9;
+  --bg-gradient-start: #eef2ff;
+  --bg-gradient-end: #f5f3ff;
+
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #94a3b8;
+
+  --border-color: #e2e8f0;
+  --border-strong: #cbd5e1;
+  --shadow-sm: 0 1px 2px 0 rgba(15, 23, 42, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(15, 23, 42, 0.08), 0 2px 4px -2px rgba(15, 23, 42, 0.04);
+  --shadow-lg: 0 10px 25px -5px rgba(15, 23, 42, 0.10), 0 8px 10px -6px rgba(15, 23, 42, 0.04);
+  --shadow-xl: 0 25px 50px -12px rgba(15, 23, 42, 0.20);
+  --shadow-card: 0 1px 3px rgba(15, 23, 42, 0.06), 0 1px 2px rgba(15, 23, 42, 0.04);
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background: linear-gradient(135deg, var(--bg-gradient-start), var(--bg-gradient-end));
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', 'Helvetica Neue', Arial, sans-serif;
+  color: var(--text-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.grid-container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 16px 28px 28px;
+  background: transparent;
+  box-sizing: border-box;
+  gap: 12px;
+}
+
+.grid-header {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 10px;
+  background: var(--bg-card);
+  border-radius: 14px;
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--border-color);
+  position: relative;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.grid-header::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, rgba(79, 70, 229, 0.06), rgba(6, 182, 212, 0.04) 60%, transparent);
+  pointer-events: none;
+}
+
+.grid-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+  letter-spacing: -0.01em;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.grid-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.stat-card {
+  background: var(--bg-card);
+  padding: 14px 18px;
+  border-radius: 10px;
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-card);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.stat-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 4px;
+  background: var(--primary-color);
+}
+
+.stat-card:nth-child(2)::after { background: var(--secondary-color); }
+.stat-card:nth-child(3)::after { background: var(--success-color); }
+.stat-card:nth-child(4)::after { background: var(--warning-color); }
+
+.stat-label {
+  font-size: 12px;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 4px;
+  font-weight: 600;
+}
+
+.stat-value {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text-primary);
+  font-feature-settings: 'tnum';
+  letter-spacing: -0.02em;
+}
+
+.datagrid-wrapper {
+  flex: 1 1 auto;
+  min-height: 0;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 14px;
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+  padding: 6px 4px 4px;
+  display: flex;
+  flex-direction: column;
+}
+
+.datagrid-inner {
+  flex: 1 1 auto;
+  min-height: 0;
+  width: 100%;
+  display: flex;
+}
+
+.datagrid-inner > * {
+  flex: 1 1 auto;
+  min-height: 0;
+}
+
+.sf-grid .sf-cell {
+  color: var(--text-primary);
+  line-height: 1.4;
+}
+
+.sf-grid {
+  font-family: inherit;
+  font-size: 14px;
+}
+
+.product-link {
+  color: var(--primary-color);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.product-link:hover {
+  color: var(--primary-color-hover);
+  text-decoration: underline;
+}
+
+/* Cell containers — give badge / pill cells room so they are not pinched */
+.sf-grid .sf-grid-content-row .sf-cell:has(.category-badge),
+.sf-grid .sf-grid-content-row .sf-cell:has(.status-badge),
+.sf-grid .sf-grid-content-row .sf-cell:has(.price-currency),
+.sf-grid .sf-grid-content-row .sf-cell:has(.stock-progress-container) {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.cat-cell,
+.status-cell {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  min-width: 110px;
+  padding: 2px 0;
+}
+
+.category-badge,
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 0.02em;
+  color: #fff;
+  min-height: 26px;
+  min-width: 96px;
+  max-width: 100%;
+  white-space: nowrap;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.15);
+}
+
+.category-badge {
+  background: var(--info-color);
+}
+
+.badge-electronics { background: var(--info-color); }
+.badge-accessories { background: #f440f7; }
+.badge-storage { background: var(--warning-color); }
+.badge-networking { background: #138369; }
+.badge-software { background: #7644d9; }
+.badge-components { background: #16c0d3; }
+.badge-peripherals { background: #f6247f; }
+.badge-smart-devices { background: #fa693d; }
+.badge-uncategorized { background: var(--neutral-color); }
+
+.status-badge.status-in-stock { background: var(--success-color); }
+.status-badge.status-out-of-stock { background: var(--danger-color); }
+.status-badge.status-discontinued { background: var(--neutral-color); }
+
+.sku-text,
+.price-currency {
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.stock-progress-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.stock-progress-bar {
+  flex: 1;
+  height: 6px;
+  background: var(--bg-light);
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+}
+
+.stock-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+}
+
+.stock-progress-text {
+  min-width: 56px;
+  text-align: right;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
