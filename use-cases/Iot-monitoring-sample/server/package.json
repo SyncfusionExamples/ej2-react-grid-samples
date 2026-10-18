@@ -1,0 +1,20 @@
+{
+  "name": "iot-monitoring-server",
+  "version": "1.0.0",
+  "description": "Industrial IoT Monitoring Dashboard - Backend Server",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node --watch index.js"
+  },
+  "keywords": ["iot", "monitoring", "socket.io", "express"],
+  "author": "Syncfusion",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "socket.io": "^4.7.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1"
+  }
+}
